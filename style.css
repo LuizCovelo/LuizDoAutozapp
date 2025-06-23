@@ -1,0 +1,287 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+header {
+  background-color: #004aad;
+  color: white;
+  padding: 20px;
+}
+
+header h1 {
+  margin-bottom: 10px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* HERO */
+.hero {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: white;
+}
+
+.hero h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  background-color: #004aad;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #00327e;
+}
+
+/* BENEFICIOS */
+.beneficios {
+  background-color: #fff;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.beneficios h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.beneficios ul {
+  list-style: none;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.beneficios ul li {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+/* COMO FUNCIONA */
+.como-funciona {
+  background-color: #f5f5f5;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.como-funciona h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.como-funciona img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* PLANOS */
+.planos {
+  background-color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.planos h2 {
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 300px;
+}
+
+.card h3 {
+  font-size: 22px;
+  color: #004aad;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.card ul {
+  list-style: none;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.card ul li {
+  margin-bottom: 10px;
+}
+
+/* AVALIAÇÕES (CARROSSEL) */
+.avaliacoes {
+  background-color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.avaliacoes h2 {
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+.carousel {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.carousel-item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.carousel-item h3 {
+  font-size: 20px;
+  color: #004aad;
+  margin-bottom: 10px;
+}
+
+.carousel-item p {
+  font-size: 16px;
+  color: #333;
+}
+
+button.prev, button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #004aad;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+}
+
+button.prev:hover, button.next:hover {
+  background-color: #00327e;
+}
+
+button.prev {
+  left: 10px;
+}
+
+button.next {
+  right: 10px;
+}
+
+/* CONTATO */
+.contato {
+  background-color: #004aad;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.contato h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.contato p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+/* BOTÃO DIFERENTE SOMENTE NA SEÇÃO CONTATO */
+.contato .btn {
+  background-color: #ffc107;
+  color: #004aad;
+}
+
+.contato .btn:hover {
+  background-color: #e0a800;
+}
+
+/* FOOTER */
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+/* BOTÃO FLUTUANTE WHATSAPP */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.whatsapp-float img {
+  width: 60px;
+  height: 60px;
+}
