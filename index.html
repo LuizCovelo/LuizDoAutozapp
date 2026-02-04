@@ -1104,164 +1104,206 @@
         </div>
     </div>
 
-    <!-- Firebase SDKs -->
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics-compat.js"></script>
+   <!-- Firebase SDKs (COMPAT - mantidos) -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics-compat.js"></script>
 
-    <script>
-        // PWA Logic
-        let deferredPrompt;
-        const installModal = document.getElementById('installModal');
-        const notificationModal = document.getElementById('notificationModal');
-        const btnInstall = document.getElementById('btnInstall');
-        const btnCancelInstall = document.getElementById('btnCancelInstall');
-        const btnAllowNotifications = document.getElementById('btnAllowNotifications');
-        const btnCancelNotifications = document.getElementById('btnCancelNotifications');
+<script>
+/* ===============================
+   VARIÁVEIS PWA / MODAIS
+================================ */
+let deferredPrompt;
 
-        // Service Worker Registration
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(reg => console.log('[PWA] Service Worker registrado:', reg.scope))
-                    .catch(err => console.error('[PWA] Erro no Service Worker:', err));
-            });
-        }
+const installModal = document.getElementById('installModal');
+const notificationModal = document.getElementById('notificationModal');
 
-        // Capture Install Prompt
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            
-            // Show modal after 3 seconds
-            setTimeout(() => {
-                if (!localStorage.getItem('pwaInstalled')) {
-                    installModal.style.display = 'flex';
-                }
-            }, 3000);
-        });
+const btnInstall = document.getElementById('btnInstall');
+const btnCancelInstall = document.getElementById('btnCancelInstall');
+const btnAllowNotifications = document.getElementById('btnAllowNotifications');
+const btnCancelNotifications = document.getElementById('btnCancelNotifications');
 
-        // Install Button Logic
-        btnInstall.addEventListener('click', async () => {
-            installModal.style.display = 'none';
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
-                const { outcome } = await deferredPrompt.userChoice;
-                if (outcome === 'accepted') {
-                    console.log('[PWA] Usuário aceitou a instalação');
-                    localStorage.setItem('pwaInstalled', 'true');
-                    showNotificationModal();
-                }
-                deferredPrompt = null;
-            } else {
-                // Fallback for browsers that don't support beforeinstallprompt or if already installed
-                showNotificationModal();
-            }
-        });
+/* ===============================
+   SERVICE WORKER (MELHORIA AQUI)
+   👉 agora registra o Firebase SW
+================================ */
+let swRegistration = null;
 
-        btnCancelInstall.addEventListener('click', () => {
-            installModal.style.display = 'none';
-        });
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', async () => {
+    try {
+      swRegistration = await navigator.serviceWorker.register('/firebase-messaging-sw.js');
+      console.log('[PWA] Firebase Service Worker registrado:', swRegistration.scope);
+    } catch (err) {
+      console.error('[PWA] Erro ao registrar Service Worker:', err);
+    }
+  });
+}
 
-        // Notification Modal Logic
-        function showNotificationModal() {
-            if ('Notification' in window && Notification.permission === 'default') {
-                setTimeout(() => {
-                    notificationModal.style.display = 'flex';
-                }, 1000);
-            }
-        }
+/* ===============================
+   CAPTURA PROMPT DE INSTALAÇÃO
+================================ */
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
 
-        btnAllowNotifications.addEventListener('click', () => {
-            notificationModal.style.display = 'none';
-            requestNotificationPermission();
-        });
+  setTimeout(() => {
+    if (!localStorage.getItem('pwaInstalled')) {
+      installModal.style.display = 'flex';
+    }
+  }, 3000);
+});
 
-        async function requestNotificationPermission() {
-            try {
-                const permission = await Notification.requestPermission();
-                if (permission === 'granted') {
-                    console.log('[PWA] Notificações permitidas');
-                    const token = await messaging.getToken({
-                        vapidKey: 'BNOcWSJ3NrTBknFrG8rydMAlm_ZNU7y90jUrDiGAXrYWP1UKbg98r2LyYNeSS4Xk3x2hah6Y2sqe1aSABb-fgyo'
-                    });
-                    if (token) {
-                        console.log('[FCM] Token gerado:', token);
-                        // Aqui você poderia enviar o token para seu servidor
-                        new Notification("Luiz do AutoZapp", {
-                            body: "Notificações ativadas com sucesso!",
-                            icon: "/icon-192.png"
-                        });
-                    }
-                }
-            } catch (error) {
-                console.error('[FCM] Erro ao obter permissão/token:', error);
-            }
-        }
+/* ===============================
+   BOTÕES DE INSTALAÇÃO
+================================ */
+btnInstall.addEventListener('click', async () => {
+  installModal.style.display = 'none';
 
-        btnCancelNotifications.addEventListener('click', () => {
-            notificationModal.style.display = 'none';
-        });
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
 
-        // Firebase Configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyAbMHvsKgPIsopW_vSrPV7Io7bVbqWd4h0",
-            authDomain: "luiz-do-autoapp-pwa-app.firebaseapp.com",
-            projectId: "luiz-do-autoapp-pwa-app",
-            storageBucket: "luiz-do-autoapp-pwa-app.firebasestorage.app",
-            messagingSenderId: "990638382810",
-            appId: "1:990638382810:web:8442eb4df7da3da320cfe3",
-            measurementId: "G-H407LF08EC"
-        };
+    if (outcome === 'accepted') {
+      console.log('[PWA] Usuário aceitou a instalação');
+      localStorage.setItem('pwaInstalled', 'true');
+      showNotificationModal();
+    }
+    deferredPrompt = null;
+  } else {
+    showNotificationModal();
+  }
+});
 
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const messaging = firebase.messaging();
-        const analytics = firebase.analytics();
+btnCancelInstall.addEventListener('click', () => {
+  installModal.style.display = 'none';
+});
 
-        // Handle incoming messages when app is in foreground
-        messaging.onMessage((payload) => {
-            console.log('[FCM] Mensagem recebida em primeiro plano:', payload);
-            const notificationTitle = payload.notification.title;
-            const notificationOptions = {
-                body: payload.notification.body,
-                icon: '/icon-192.png'
-            };
-            new Notification(notificationTitle, notificationOptions);
-        });
+/* ===============================
+   MODAL DE NOTIFICAÇÕES
+================================ */
+function showNotificationModal() {
+  if ('Notification' in window && Notification.permission === 'default') {
+    setTimeout(() => {
+      notificationModal.style.display = 'flex';
+    }, 1000);
+  }
+}
 
-        console.log('[PWA] Site do Luiz do AutoZapp carregado com Firebase!');
+btnAllowNotifications.addEventListener('click', () => {
+  notificationModal.style.display = 'none';
+  requestNotificationPermission();
+});
 
-        // Smooth scroll behavior
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
+btnCancelNotifications.addEventListener('click', () => {
+  notificationModal.style.display = 'none';
+});
 
-        // Add scroll animation for elements
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+/* ===============================
+   FIREBASE CONFIG
+================================ */
+const firebaseConfig = {
+  apiKey: "AIzaSyAbMHvsKgPIsopW_vSrPV7Io7bVbqWd4h0",
+  authDomain: "luiz-do-autoapp-pwa-app.firebaseapp.com",
+  projectId: "luiz-do-autoapp-pwa-app",
+  storageBucket: "luiz-do-autoapp-pwa-app.firebasestorage.app",
+  messagingSenderId: "990638382810",
+  appId: "1:990638382810:web:8442eb4df7da3da320cfe3",
+  measurementId: "G-H407LF08EC"
+};
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
+/* ===============================
+   INICIALIZA FIREBASE
+================================ */
+firebase.initializeApp(firebaseConfig);
 
-        document.querySelectorAll('.benefit-card, .segment-card').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
+const messaging = firebase.messaging();
+const analytics = firebase.analytics();
+
+/* ===============================
+   PERMISSÃO + TOKEN FCM (MELHORIA)
+================================ */
+async function requestNotificationPermission() {
+  try {
+    const permission = await Notification.requestPermission();
+
+    if (permission !== 'granted') {
+      console.warn('[FCM] Permissão negada');
+      return;
+    }
+
+    console.log('[PWA] Notificações permitidas');
+
+    const token = await messaging.getToken({
+      vapidKey: 'BNOcWSJ3NrTBknFrG8rydMAlm_ZNU7y90jUrDiGAXrYWP1UKbg98r2LyYNeSS4Xk3x2hah6Y2sqe1aSABb-fgyo',
+      serviceWorkerRegistration: swRegistration
+    });
+
+    if (token) {
+      console.log('[FCM] Token gerado com sucesso:', token);
+
+      new Notification('Luiz do AutoZapp', {
+        body: 'Notificações ativadas com sucesso!',
+        icon: '/icon-192.png'
+      });
+
+      // 👉 aqui você pode enviar o token para seu backend
+    }
+  } catch (error) {
+    console.error('[FCM] Erro ao gerar token:', error);
+  }
+}
+
+/* ===============================
+   MENSAGEM EM PRIMEIRO PLANO
+================================ */
+messaging.onMessage((payload) => {
+  console.log('[FCM] Mensagem em primeiro plano:', payload);
+
+  if (Notification.permission === 'granted') {
+    new Notification(payload.notification.title, {
+      body: payload.notification.body,
+      icon: '/icon-192.png'
+    });
+  }
+});
+
+console.log('[PWA] Luiz do AutoZapp carregado com Firebase OK');
+
+/* ===============================
+   SCROLL SUAVE
+================================ */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+/* ===============================
+   ANIMAÇÕES AO SCROLL
+================================ */
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.benefit-card, .segment-card').forEach(el => {
+  observer.observe(el);
+});
+</script>
 
 
 </body>
