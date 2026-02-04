@@ -35,7 +35,7 @@
     <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%230F3A7D' width='192' height='192' rx='48'/><text x='50%' y='50%' font-size='100' font-weight='bold' fill='white' text-anchor='middle' dominant-baseline='central' font-family='Arial'>L</text></svg>">
     
     <!-- Manifest e Favicon -->
-    <link rel="manifest" href="data:application/manifest+json,{%22name%22:%22Luiz%20do%20AutoZapp%22,%22short_name%22:%22Luiz%20AutoZapp%22,%22description%22:%22Especialista%20em%20sites%20PWA%20e%20automação%20de%20WhatsApp%22,%22start_url%22:%22/%22,%22display%22:%22standalone%22,%22theme_color%22:%22%230F3A7D%22,%22background_color%22:%22%23FFFFFF%22}">
+    <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%230F3A7D' width='192' height='192'/><text x='50%' y='50%' font-size='100' font-weight='bold' fill='white' text-anchor='middle' dominant-baseline='central' font-family='Arial'>L</text></svg>">
     
     <!-- Schema.org JSON-LD -->
@@ -1118,5 +1118,19 @@
             observer.observe(el);
         });
     </script>
+    <script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then(reg => {
+        console.log('[PWA] Service Worker registrado:', reg.scope);
+      })
+      .catch(err => {
+        console.error('[PWA] Falha no Service Worker:', err);
+      });
+  });
+}
+</script>
+
 </body>
 </html>
