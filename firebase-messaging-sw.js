@@ -1,26 +1,36 @@
-importScripts('https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js');
-importScripts('https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-compat.js');
+importScripts('https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging.js');
 
 const firebaseConfig = {
   apiKey: "AIzaSyAbMHvsKgPIsopW_vSrPV7Io7bVbqWd4h0",
   authDomain: "luiz-do-autoapp-pwa-app.firebaseapp.com",
   projectId: "luiz-do-autoapp-pwa-app",
-  storageBucket: "luiz-do-autoapp-pwa-app.firebasestorage.app",
+  storageBucket: "luiz-do-autoapp-pwa-app.appspot.com",
   messagingSenderId: "990638382810",
-  appId: "1:990638382810:web:8442eb4df7da3da320cfe3",
-  measurementId: "G-H407LF08EC"
+  appId: "1:990638382810:web:8442eb4df7da3da320cfe3"
 };
 
 firebase.initializeApp(firebaseConfig);
+
 const messaging = firebase.messaging();
 
-messaging.onBackgroundMessage((payload) => {
-  console.log('[FCM] Mensagem recebida em segundo plano:', payload);
-  const notificationTitle = payload.notification.title;
-  const notificationOptions = {
-    body: payload.notification.body,
-    icon: '/icon-192.png'
-  };
+/* 🔔 Push em segundo plano */
+messaging.onBackgroundMessage(payload => {
+  console.log('[FCM] Background message:', payload);
 
-  self.registration.showNotification(notificationTitle, notificationOptions);
+  const notification = payload.notification || {};
+
+  self.registration.showNotification(notification.title || 'Luiz do AutoZapp', {
+    body: notification.body || 'Nova mensagem recebida',
+    icon: '/icons/icon-192.png',
+    badge: '/icons/icon-192.png',
+    data: {
+      url: '/'
+    }
+  });
+});
+
+/* ✅ Assume controle imediatamente */
+self.addEventListener('activate', event => {
+  event.waitUntil(self.clients.claim());
 });
