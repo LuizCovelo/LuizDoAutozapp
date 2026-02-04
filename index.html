@@ -751,6 +751,89 @@
                 grid-template-columns: 1fr;
             }
         }
+        /* Modal Styles */
+        .pwa-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .pwa-modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+            animation: modalFadeIn 0.3s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .pwa-modal-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #0F3A7D;
+        }
+
+        .pwa-modal h2 {
+            margin-bottom: 1rem;
+            color: #111827;
+        }
+
+        .pwa-modal p {
+            margin-bottom: 1.5rem;
+            color: #4B5563;
+            font-size: 1rem;
+        }
+
+        .pwa-modal-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .pwa-btn-install {
+            background-color: #10B981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .pwa-btn-install:hover {
+            background-color: #059669;
+        }
+
+        .pwa-btn-cancel {
+            background-color: #E5E7EB;
+            color: #4B5563;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .pwa-btn-cancel:hover {
+            background-color: #D1D5DB;
+        }
     </style>
 </head>
 <body>
@@ -995,85 +1078,111 @@
         💬
     </a>
 
+    <!-- PWA Install Modal -->
+    <div id="installModal" class="pwa-modal">
+        <div class="pwa-modal-content">
+            <div class="pwa-modal-icon">📱</div>
+            <h2>Instale nosso App!</h2>
+            <p>Transforme sua experiência! Instale nosso App agora. É super leve, não ocupa espaço no seu celular e funciona até sem internet. Tenha o Luiz do AutoZapp sempre à mão com apenas um clique!</p>
+            <div class="pwa-modal-buttons">
+                <button id="btnInstall" class="pwa-btn-install">Instalar Agora</button>
+                <button id="btnCancelInstall" class="pwa-btn-cancel">Agora não</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PWA Notification Modal -->
+    <div id="notificationModal" class="pwa-modal">
+        <div class="pwa-modal-content">
+            <div class="pwa-modal-icon">🔔</div>
+            <h2>Fique por dentro!</h2>
+            <p>Não perca nenhuma oportunidade! Ative as notificações para receber atualizações exclusivas e dicas de automação diretamente no seu celular. Prometemos enviar apenas conteúdo de valor!</p>
+            <div class="pwa-modal-buttons">
+                <button id="btnAllowNotifications" class="pwa-btn-install">Permitir</button>
+                <button id="btnCancelNotifications" class="pwa-btn-cancel">Agora não</button>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // PWA Logic
+        let deferredPrompt;
+        const installModal = document.getElementById('installModal');
+        const notificationModal = document.getElementById('notificationModal');
+        const btnInstall = document.getElementById('btnInstall');
+        const btnCancelInstall = document.getElementById('btnCancelInstall');
+        const btnAllowNotifications = document.getElementById('btnAllowNotifications');
+        const btnCancelNotifications = document.getElementById('btnCancelNotifications');
+
         // Service Worker Registration
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                // Inline Service Worker
-                const swCode = `
-                    const CACHE_NAME = 'luiz-autozapp-v1';
-                    const urlsToCache = ['/'];
-
-                    self.addEventListener('install', event => {
-                        console.log('[PWA] Service Worker instalando...');
-                        self.skipWaiting();
-                    });
-
-                    self.addEventListener('activate', event => {
-                        console.log('[PWA] Service Worker ativando...');
-                        self.clients.claim();
-                    });
-
-                    self.addEventListener('fetch', event => {
-                        if (event.request.method !== 'GET') return;
-                        
-                        event.respondWith(
-                            fetch(event.request)
-                                .then(response => {
-                                    if (!response || response.status !== 200) return response;
-                                    const responseToCache = response.clone();
-                                    caches.open(CACHE_NAME).then(cache => {
-                                        cache.put(event.request, responseToCache);
-                                    });
-                                    return response;
-                                })
-                                .catch(() => {
-                                    return caches.match(event.request)
-                                        .then(response => response || new Response('Offline'));
-                                })
-                        );
-                    });
-
-                    self.addEventListener('push', event => {
-                        const notificationData = event.data ? event.data.json() : {};
-                        event.waitUntil(
-                            self.registration.showNotification(
-                                notificationData.title || 'Luiz do AutoZapp',
-                                {
-                                    body: notificationData.body || 'Nova mensagem',
-                                    icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192"><rect fill="%230F3A7D" width="192" height="192"/><text x="50%" y="50%" font-size="100" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="central" font-family="Arial">L</text></svg>',
-                                    badge: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192"><rect fill="%2310B981" width="192" height="192"/><text x="50%" y="50%" font-size="100" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="central" font-family="Arial">L</text></svg>'
-                                }
-                            )
-                        );
-                    });
-                `;
-
-                const blob = new Blob([swCode], { type: 'application/javascript' });
-                const swUrl = URL.createObjectURL(blob);
-
-                navigator.serviceWorker.register(swUrl)
-                    .then(registration => {
-                        console.log('[PWA] Service Worker registrado com sucesso');
-                    })
-                    .catch(error => {
-                        console.error('[PWA] Erro ao registrar Service Worker:', error);
-                    });
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('[PWA] Service Worker registrado:', reg.scope))
+                    .catch(err => console.error('[PWA] Erro no Service Worker:', err));
             });
         }
 
-        // Request Notification Permission
-        if ('Notification' in window && 'serviceWorker' in navigator) {
-            if (Notification.permission === 'default') {
+        // Capture Install Prompt
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            // Show modal after 3 seconds
+            setTimeout(() => {
+                if (!localStorage.getItem('pwaInstalled')) {
+                    installModal.style.display = 'flex';
+                }
+            }, 3000);
+        });
+
+        // Install Button Logic
+        btnInstall.addEventListener('click', async () => {
+            installModal.style.display = 'none';
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') {
+                    console.log('[PWA] Usuário aceitou a instalação');
+                    localStorage.setItem('pwaInstalled', 'true');
+                    showNotificationModal();
+                }
+                deferredPrompt = null;
+            } else {
+                // Fallback for browsers that don't support beforeinstallprompt or if already installed
+                showNotificationModal();
+            }
+        });
+
+        btnCancelInstall.addEventListener('click', () => {
+            installModal.style.display = 'none';
+        });
+
+        // Notification Modal Logic
+        function showNotificationModal() {
+            if ('Notification' in window && Notification.permission === 'default') {
                 setTimeout(() => {
-                    Notification.requestPermission().then(permission => {
-                        if (permission === 'granted') {
-                            console.log('[PWA] Permissão para notificações concedida');
-                        }
-                    });
-                }, 3000);
+                    notificationModal.style.display = 'flex';
+                }, 1000);
             }
         }
+
+        btnAllowNotifications.addEventListener('click', () => {
+            notificationModal.style.display = 'none';
+            Notification.requestPermission().then(permission => {
+                if (permission === 'granted') {
+                    console.log('[PWA] Notificações permitidas');
+                    new Notification("Luiz do AutoZapp", {
+                        body: "Obrigado por ativar as notificações! Você receberá novidades em breve.",
+                        icon: "/icon-192.png"
+                    });
+                }
+            });
+        });
+
+        btnCancelNotifications.addEventListener('click', () => {
+            notificationModal.style.display = 'none';
+        });
 
         // Firebase Configuration (Placeholder)
         window.firebaseConfig = {
@@ -1118,19 +1227,7 @@
             observer.observe(el);
         });
     </script>
-    <script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then(reg => {
-        console.log('[PWA] Service Worker registrado:', reg.scope);
-      })
-      .catch(err => {
-        console.error('[PWA] Falha no Service Worker:', err);
-      });
-  });
-}
-</script>
+
 
 </body>
 </html>
