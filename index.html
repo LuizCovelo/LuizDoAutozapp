@@ -32,7 +32,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Luiz AutoZapp">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%230F3A7D' width='192' height='192' rx='48'/><text x='50%' y='50%' font-size='100' font-weight='bold' fill='white' text-anchor='middle' dominant-baseline='central' font-family='Arial'>L</text></svg>">
+    <link rel="apple-touch-icon" href="/icon-192.png">
     
     <!-- Manifest e Favicon -->
     <link rel="manifest" href="/manifest.json">
@@ -1124,21 +1124,27 @@ const btnAllowNotifications = document.getElementById('btnAllowNotifications');
 const btnCancelNotifications = document.getElementById('btnCancelNotifications');
 
 /* ===============================
-   SERVICE WORKER (MELHORIA AQUI)
-   👉 agora registra o Firebase SW
+   SERVICE WORKER
+   👉 registra service-worker.js unificado
 ================================ */
 let swRegistration = null;
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
-      swRegistration = await navigator.serviceWorker.register('/firebase-messaging-sw.js');
-      console.log('[PWA] Firebase Service Worker registrado:', swRegistration.scope);
+      swRegistration = await navigator.serviceWorker.register('/service-worker.js');
+      console.log('[PWA] Service Worker registrado:', swRegistration.scope);
     } catch (err) {
       console.error('[PWA] Erro ao registrar Service Worker:', err);
     }
   });
 }
+
+/* ===============================
+   DETECÇÃO iOS
+================================ */
+const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+const isInStandaloneMode = window.navigator.standalone === true;
 
 /* ===============================
    CAPTURA PROMPT DE INSTALAÇÃO
@@ -1153,6 +1159,21 @@ window.addEventListener('beforeinstallprompt', (e) => {
     }
   }, 3000);
 });
+
+/* iOS: mostra instrução manual após 3s se ainda não instalado */
+if (isIOS && !isInStandaloneMode && !localStorage.getItem('pwaInstalled')) {
+  setTimeout(() => {
+    const modalTitle = installModal.querySelector('h2');
+    const modalText  = installModal.querySelector('p');
+    const btnInstallEl = document.getElementById('btnInstall');
+
+    if (modalTitle) modalTitle.textContent = 'Instale nosso App!';
+    if (modalText)  modalText.textContent  = 'Toque no botão de compartilhar \uD83D\uDCE4 e depois em "Adicionar à Tela de Início" para instalar o app no seu iPhone.';
+    if (btnInstallEl) btnInstallEl.style.display = 'none'; /* oculta botão de install nativo */
+
+    installModal.style.display = 'flex';
+  }, 3000);
+}
 
 /* ===============================
    BOTÕES DE INSTALAÇÃO
