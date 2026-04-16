@@ -1,1331 +1,2312 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <title>Luiz do AutoZapp - Sites PWA e Automação WhatsApp | Vila Mariana, SP</title>
-    
-    <!-- Meta Tags de SEO -->
-    <meta name="description" content="Especialista em sites PWA ultrarrápidos com automação de WhatsApp. Soluções para clínicas, veterinárias, pizzarias, floriculturas, petshops e mecânicas. Preços acessíveis, pagamento após implantação.">
-    <meta name="keywords" content="sites PWA, automação WhatsApp, criação de sites, sites responsivos, notificações push, Firebase, sites para clínicas, agendamento online, site para veterinária, site para pizzaria, site para floricultura, site para petshop, site para mecânica, fidelização de clientes, SEO, Vila Mariana, São Paulo">
-    <meta name="author" content="Luiz do AutoZapp">
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="Portuguese">
-    <meta name="revisit-after" content="7 days">
-    
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Luiz do AutoZapp - Sites PWA e Automação WhatsApp">
-    <meta property="og:description" content="Transforme seu negócio com sites PWA ultrarrápidos e automação de WhatsApp. Soluções para todos os segmentos.">
-    <meta property="og:url" content="https://luizdoautozapp.vercel.app">
-    <meta property="og:site_name" content="Luiz do AutoZapp">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Luiz do AutoZapp - Sites PWA e Automação WhatsApp">
-    <meta name="twitter:description" content="Especialista em sites PWA com automação de WhatsApp para transformar seu negócio.">
-    
-    <!-- PWA Meta Tags -->
-    <meta name="theme-color" content="#0F3A7D">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Luiz AutoZapp">
-    <link rel="apple-touch-icon" href="/icon-192.png">
-    
-    <!-- Manifest e Favicon -->
-    <link rel="manifest" href="/manifest.json">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%230F3A7D' width='192' height='192'/><text x='50%' y='50%' font-size='100' font-weight='bold' fill='white' text-anchor='middle' dominant-baseline='central' font-family='Arial'>L</text></svg>">
-    
-    <!-- Schema.org JSON-LD -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Luiz do AutoZapp",
-      "description": "Especialista em sites PWA e automação de WhatsApp",
-      "url": "https://luizdoautozapp.vercel.app",
-      "telephone": "+5519971669134",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Vila Mariana",
-        "addressLocality": "São Paulo",
-        "addressRegion": "SP",
-        "addressCountry": "BR"
-      },
-      "areaServed": ["São Paulo", "Vila Mariana"],
-      "serviceType": ["Website Development", "PWA Development", "WhatsApp Automation"]
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO -->
+  <title>Automação de WhatsApp e Sistemas | Luiz do AutoZapp</title>
+  <meta name="description" content="Automatize seu atendimento no WhatsApp, crie sistemas de agendamento inteligentes e sites profissionais. Soluções de automação para empresas que querem crescer. Petshops, pizzarias, oficinas e mais." />
+  <meta name="keywords" content="automação de WhatsApp, sistema de agendamento, chatbot para empresas, automação de vendas, criação de sistemas, criação de sites profissionais, WhatsApp Business API, automação para petshop, automação para pizzaria, automação para oficina, sistemas personalizados, desenvolvimento de sistemas" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Luiz do AutoZapp" />
+  <link rel="canonical" href="https://luizdoautozapp.com.br" />
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://luizdoautozapp.com.br" />
+  <meta property="og:title" content="Automação de WhatsApp e Sistemas | Luiz do AutoZapp" />
+  <meta property="og:description" content="Sistemas inteligentes, automações e sites profissionais para empresas que querem crescer de verdade. Atendimento automático 24h no WhatsApp." />
+  <meta property="og:image" content="og-image.jpg" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Luiz do AutoZapp" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Automação de WhatsApp e Sistemas | Luiz do AutoZapp" />
+  <meta name="twitter:description" content="Automatize seu atendimento e aumente suas vendas no piloto automático." />
+  <meta name="twitter:image" content="og-image.jpg" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="favicon.jpg" />
+  <link rel="apple-touch-icon" href="favicon.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    </script>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-        }
-
-        body {
-            background-color: #FFFFFF;
-            color: #1F2937;
-            line-height: 1.6;
-        }
-
-        /* Header/Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #F3F4F6;
-            z-index: 50;
-            padding: 1rem 0;
-        }
-
-        .header-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #0F3A7D 0%, #10B981 100%);
-            border-radius: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.25rem;
-        }
-
-        .logo-text h1 {
-            font-size: 1.125rem;
-            margin: 0;
-        }
-
-        .logo-text p {
-            font-size: 0.75rem;
-            color: #6B7280;
-            margin: 0;
-        }
-
-        .contact-btn {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background-color: #10B981;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 0.875rem;
-        }
-
-        .contact-btn:hover {
-            background-color: #059669;
-            box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 80px;
-            padding: 3rem 1rem;
-            background: linear-gradient(135deg, #0F3A7D 0%, #10B981 100%);
-            background-attachment: fixed;
-            color: white;
-        }
-
-        .hero-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .hero-content p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.9);
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-        }
-
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-primary {
-            background-color: #F97316;
-            color: white;
-            box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.3);
-        }
-
-        .btn-primary:hover {
-            background-color: #EA580C;
-            box-shadow: 0 20px 25px -5px rgba(249, 115, 22, 0.4);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .hero-guarantee {
-            font-size: 0.875rem;
-            color: rgba(255, 255, 255, 0.8);
-            animation: fadeInUp 0.8s ease-out 0.6s both;
-        }
-
-        .hero-image {
-            animation: fadeInScale 0.8s ease-out 0.3s both;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 0.5rem;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Benefits Section */
-        .benefits {
-            padding: 3rem 1rem;
-            background-color: #F9FAFB;
-        }
-
-        .benefits-container {
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2.25rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #111827;
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .benefit-card {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .benefit-card:hover {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            transform: translateY(-4px);
-        }
-
-        .benefit-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, #0F3A7D 0%, #10B981 100%);
-            border-radius: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .benefit-card h3 {
-            font-size: 1.125rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .benefit-card p {
-            font-size: 0.875rem;
-            color: #6B7280;
-        }
-
-        /* Segments Section */
-        .segments {
-            padding: 3rem 1rem;
-            background-color: white;
-        }
-
-        .segments-container {
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-
-        .segments-subtitle {
-            text-align: center;
-            color: #6B7280;
-            margin-bottom: 2rem;
-            max-width: 42rem;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .segments-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .segment-card {
-            border: 1px solid #E5E7EB;
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .segment-card:hover {
-            border-color: #10B981;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        .segment-emoji {
-            font-size: 2rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .segment-card h3 {
-            font-size: 1.125rem;
-            margin-bottom: 0.5rem;
-            color: #111827;
-        }
-
-        .segment-card p {
-            font-size: 0.875rem;
-            color: #6B7280;
-            margin-bottom: 1rem;
-        }
-
-        .segment-keywords {
-            font-size: 0.75rem;
-            color: #9CA3AF;
-            font-style: italic;
-        }
-
-        /* Why Choose Section */
-        .why-choose {
-            padding: 3rem 1rem;
-            background: linear-gradient(to right, #F0F9FF, #F0FDF4);
-        }
-
-        .why-choose-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .why-choose-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 0.5rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        .why-choose-content h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: #111827;
-        }
-
-        .reasons-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .reason-item {
-            display: flex;
-            gap: 1rem;
-            align-items: flex-start;
-        }
-
-        .reason-check {
-            color: #10B981;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-            margin-top: 0.25rem;
-        }
-
-        .reason-text {
-            color: #374151;
-            font-size: 0.95rem;
-        }
-
-        /* PWA Section */
-        .pwa-section {
-            padding: 3rem 1rem;
-            background-color: white;
-        }
-
-        .pwa-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .pwa-content h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: #111827;
-        }
-
-        .pwa-content p {
-            font-size: 1.05rem;
-            color: #6B7280;
-            margin-bottom: 1.5rem;
-        }
-
-        .pwa-features {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            margin-bottom: 2rem;
-        }
-
-        .feature-item {
-            display: flex;
-            gap: 0.75rem;
-            align-items: flex-start;
-            font-size: 0.95rem;
-        }
-
-        .feature-icon {
-            color: #F97316;
-            font-size: 1.25rem;
-            flex-shrink: 0;
-            margin-top: 0.25rem;
-        }
-
-        .pwa-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 0.5rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        /* CTA Section */
-        .cta {
-            padding: 3rem 1rem;
-            background: linear-gradient(to right, #0F3A7D, #10B981);
-            color: white;
-            text-align: center;
-        }
-
-        .cta-container {
-            max-width: 56rem;
-            margin: 0 auto;
-        }
-
-        .cta h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .cta p {
-            font-size: 1.125rem;
-            margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-cta-primary {
-            background-color: #F97316;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-cta-primary:hover {
-            background-color: #EA580C;
-            box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.3);
-        }
-
-        .btn-cta-secondary {
-            background-color: transparent;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            border: 2px solid white;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-cta-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        /* Footer */
-        footer {
-            background-color: #111827;
-            color: white;
-            padding: 3rem 1rem;
-        }
-
-        .footer-container {
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            font-size: 1.125rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-section p {
-            color: #9CA3AF;
-            font-size: 0.875rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section a {
-            color: #9CA3AF;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: white;
-        }
-
-        .footer-contact {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #374151;
-            padding-top: 2rem;
-            text-align: center;
-            color: #9CA3AF;
-            font-size: 0.875rem;
-        }
-
-        /* WhatsApp Floating Button */
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 1.5rem;
-            right: 1.5rem;
-            width: 56px;
-            height: 56px;
-            background-color: #10B981;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            z-index: 40;
-            font-size: 1.5rem;
-            animation: pulse 2s infinite;
-        }
-
-        .whatsapp-btn:hover {
-            background-color: #059669;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
-            transform: scale(1.1);
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);
-            }
-            50% {
-                box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.6);
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-container {
-                padding: 0 1rem;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-
-            .hero-content p {
-                font-size: 1rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .why-choose-container {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .pwa-container {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .section-title {
-                font-size: 1.75rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .cta h2 {
-                font-size: 1.5rem;
-            }
-
-            .contact-btn {
-                font-size: 0.75rem;
-                padding: 0.4rem 0.8rem;
-            }
-
-            .whatsapp-btn {
-                width: 48px;
-                height: 48px;
-                font-size: 1.25rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header {
-                padding: 0.75rem 0;
-            }
-
-            .hero {
-                margin-top: 70px;
-                padding: 1.5rem 1rem;
-            }
-
-            .hero-content h1 {
-                font-size: 1.5rem;
-            }
-
-            .hero-content p {
-                font-size: 0.9rem;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .segments-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        /* Modal Styles */
-        .pwa-modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(5px);
-        }
-
-        .pwa-modal-content {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 1rem;
-            max-width: 400px;
-            width: 90%;
-            text-align: center;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
-            animation: modalFadeIn 0.3s ease-out;
-        }
-
-        @keyframes modalFadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .pwa-modal-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #0F3A7D;
-        }
-
-        .pwa-modal h2 {
-            margin-bottom: 1rem;
-            color: #111827;
-        }
-
-        .pwa-modal p {
-            margin-bottom: 1.5rem;
-            color: #4B5563;
-            font-size: 1rem;
-        }
-
-        .pwa-modal-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        .pwa-btn-install {
-            background-color: #10B981;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            border: none;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .pwa-btn-install:hover {
-            background-color: #059669;
-        }
-
-        .pwa-btn-cancel {
-            background-color: #E5E7EB;
-            color: #4B5563;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            border: none;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .pwa-btn-cancel:hover {
-            background-color: #D1D5DB;
-        }
-    </style>
+
+    :root {
+      --bg-deep:        #050508;
+      --bg-card:        #0c0c14;
+      --bg-glass:       rgba(255,255,255,0.04);
+      --border-glass:   rgba(255,255,255,0.08);
+      --border-bright:  rgba(255,255,255,0.14);
+
+      --accent-blue:    #3b7ef8;
+      --accent-violet:  #7c3aed;
+      --accent-cyan:    #06d6ff;
+      --accent-red:     #ef4444;
+
+      --grad-primary:   linear-gradient(135deg, #3b7ef8 0%, #7c3aed 100%);
+      --grad-glow:      radial-gradient(ellipse 60% 50% at 50% 0%, rgba(59,126,248,0.18) 0%, transparent 70%);
+      --grad-card:      linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+
+      --text-primary:   #f0f0f8;
+      --text-secondary: #9492aa;
+      --text-muted:     #5c5a72;
+
+      --font-display:   'Syne', sans-serif;
+      --font-body:      'DM Sans', sans-serif;
+
+      --radius-sm:  8px;
+      --radius-md:  14px;
+      --radius-lg:  22px;
+      --radius-xl:  32px;
+
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-deep);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: rgba(59,126,248,0.3);
+      color: #fff;
+    }
+
+    /* =============================================
+       SCROLLBAR
+    ============================================= */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg-deep); }
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-blue);
+      border-radius: 99px;
+    }
+
+    /* =============================================
+       NOISE OVERLAY
+    ============================================= */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
+
+    /* =============================================
+       UTILITY
+    ============================================= */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .gradient-text {
+      background: var(--grad-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-blue);
+      background: rgba(59,126,248,0.10);
+      border: 1px solid rgba(59,126,248,0.2);
+      padding: 6px 14px;
+      border-radius: 99px;
+      margin-bottom: 20px;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--accent-blue);
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.7); }
+    }
+
+    /* =============================================
+       BUTTONS
+    ============================================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: var(--radius-md);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: var(--transition);
+      white-space: nowrap;
+      letter-spacing: 0.01em;
+    }
+
+    .btn-primary {
+      background: var(--grad-primary);
+      color: #fff;
+      box-shadow: 0 4px 24px rgba(59,126,248,0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 36px rgba(59,126,248,0.5);
+    }
+
+    .btn-ghost {
+      background: var(--bg-glass);
+      color: var(--text-primary);
+      border: 1px solid var(--border-bright);
+      backdrop-filter: blur(12px);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.22);
+      transform: translateY(-2px);
+    }
+
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+      color: #fff;
+      box-shadow: 0 4px 24px rgba(37,211,102,0.35);
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 36px rgba(37,211,102,0.5);
+    }
+
+    .btn svg { flex-shrink: 0; }
+
+    /* =============================================
+       NAVBAR
+    ============================================= */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 16px 0;
+      transition: var(--transition);
+    }
+
+    #navbar.scrolled {
+      background: rgba(5,5,8,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-glass);
+      padding: 12px 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 40px;
+      width: 40px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+    }
+
+    .nav-logo-text {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.1;
+    }
+
+    .nav-logo-text span {
+      display: block;
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: var(--transition);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links a:hover { color: var(--text-primary); }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--text-primary);
+      border-radius: 99px;
+      transition: var(--transition);
+    }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-video-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-video-wrap video {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(0,0,0,0.72) 0%,
+        rgba(0,0,0,0.58) 50%,
+        rgba(5,3,20,0.75) 100%
+      );
+      z-index: 1;
+    }
+
+    /* Animated grid lines */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background-image:
+        linear-gradient(rgba(59,126,248,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,126,248,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: -20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 600px;
+      background: radial-gradient(ellipse, rgba(59,126,248,0.12) 0%, transparent 65%);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      padding: 140px 0 100px;
+      max-width: 780px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(12px);
+      padding: 8px 16px;
+      border-radius: 99px;
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      letter-spacing: 0.05em;
+      margin-bottom: 28px;
+      animation: fadeInUp 0.8s ease both;
+    }
+
+    .hero-badge .dot {
+      width: 8px; height: 8px;
+      background: #25d366;
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(37,211,102,0.8);
+      animation: pulse-green 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-green {
+      0%, 100% { box-shadow: 0 0 8px rgba(37,211,102,0.8); }
+      50% { box-shadow: 0 0 18px rgba(37,211,102,1); }
+    }
+
+    .hero-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 5.5vw, 72px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 24px;
+      animation: fadeInUp 0.8s 0.15s ease both;
+    }
+
+    .hero-h1 .line-accent {
+      background: linear-gradient(90deg, #3b7ef8, #a855f7, #06d6ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: clamp(16px, 1.8vw, 20px);
+      color: rgba(255,255,255,0.68);
+      font-weight: 300;
+      line-height: 1.65;
+      max-width: 560px;
+      margin-bottom: 44px;
+      animation: fadeInUp 0.8s 0.3s ease both;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s 0.45s ease both;
+    }
+
+    .hero-stats {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      margin-top: 64px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      animation: fadeInUp 0.8s 0.6s ease both;
+    }
+
+    .hero-stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .hero-stat-num {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 800;
+      background: var(--grad-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* =============================================
+       TRUST BAND
+    ============================================= */
+    #trust-band {
+      background: rgba(255,255,255,0.025);
+      border-top: 1px solid var(--border-glass);
+      border-bottom: 1px solid var(--border-glass);
+      padding: 20px 0;
+      overflow: hidden;
+    }
+
+    .trust-scroll {
+      display: flex;
+      gap: 64px;
+      animation: marquee 25s linear infinite;
+      white-space: nowrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+    }
+
+    .trust-item svg { color: var(--accent-blue); flex-shrink: 0; }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* =============================================
+       BENEFITS (PROOF OF VALUE)
+    ============================================= */
+    #benefits {
+      padding: 120px 0;
+      position: relative;
+    }
+
+    #benefits::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 1px; height: 100%;
+      background: linear-gradient(to bottom, transparent, var(--border-glass), transparent);
+    }
+
+    .benefits-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 72px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 46px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border-glass);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+    }
+
+    .benefit-card {
+      background: var(--bg-deep);
+      padding: 44px 36px;
+      position: relative;
+      transition: var(--transition);
+      overflow: hidden;
+    }
+
+    .benefit-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--grad-primary);
+      transform: scaleX(0);
+      transition: var(--transition);
+      transform-origin: left;
+    }
+
+    .benefit-card:hover::before { transform: scaleX(1); }
+
+    .benefit-card:hover {
+      background: var(--bg-card);
+    }
+
+    .benefit-icon {
+      width: 52px; height: 52px;
+      background: rgba(59,126,248,0.1);
+      border: 1px solid rgba(59,126,248,0.18);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-blue);
+      margin-bottom: 20px;
+      transition: var(--transition);
+    }
+
+    .benefit-card:hover .benefit-icon {
+      background: rgba(59,126,248,0.18);
+      box-shadow: 0 0 24px rgba(59,126,248,0.25);
+    }
+
+    .benefit-card h3 {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .benefit-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* =============================================
+       SERVICES
+    ============================================= */
+    #services {
+      padding: 120px 0;
+      background: linear-gradient(180deg, var(--bg-deep) 0%, #070710 50%, var(--bg-deep) 100%);
+      position: relative;
+    }
+
+    .services-glow {
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px; height: 600px;
+      background: radial-gradient(ellipse, rgba(124,58,237,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .services-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 72px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-xl);
+      padding: 44px;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+      cursor: default;
+    }
+
+    .service-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--grad-primary);
+      opacity: 0;
+      transition: var(--transition-slow);
+      border-radius: inherit;
+    }
+
+    .service-card:hover {
+      border-color: rgba(59,126,248,0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(59,126,248,0.15);
+    }
+
+    .service-card > * { position: relative; z-index: 1; }
+
+    .service-num {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--accent-blue);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .service-icon-wrap {
+      width: 64px; height: 64px;
+      background: rgba(59,126,248,0.08);
+      border: 1px solid rgba(59,126,248,0.15);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-blue);
+      margin-bottom: 24px;
+      transition: var(--transition);
+    }
+
+    .service-card:hover .service-icon-wrap {
+      background: rgba(59,126,248,0.15);
+      box-shadow: 0 0 32px rgba(59,126,248,0.3);
+      color: #fff;
+    }
+
+    .service-card h2 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .service-card p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .service-tag {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent-blue);
+      background: rgba(59,126,248,0.08);
+      border: 1px solid rgba(59,126,248,0.15);
+      padding: 4px 12px;
+      border-radius: 99px;
+    }
+
+    .service-arrow {
+      position: absolute;
+      top: 32px; right: 32px;
+      width: 36px; height: 36px;
+      background: var(--border-glass);
+      border: 1px solid var(--border-glass);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+
+    .service-card:hover .service-arrow {
+      background: var(--accent-blue);
+      border-color: var(--accent-blue);
+      color: #fff;
+      transform: rotate(45deg);
+    }
+
+    /* Featured card */
+    .service-card.featured {
+      grid-column: span 2;
+      background: linear-gradient(135deg, rgba(59,126,248,0.08) 0%, rgba(124,58,237,0.08) 100%);
+      border-color: rgba(59,126,248,0.2);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .service-card.featured .service-content {}
+
+    .service-card.featured .service-visual {
+      background: rgba(59,126,248,0.06);
+      border: 1px solid rgba(59,126,248,0.12);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .mock-chat-msg {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .mock-chat-msg.bot { flex-direction: row; }
+    .mock-chat-msg.user { flex-direction: row-reverse; }
+
+    .mock-avatar {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .mock-avatar.bot-av {
+      background: linear-gradient(135deg, #3b7ef8, #7c3aed);
+    }
+
+    .mock-avatar.user-av {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .mock-bubble {
+      font-size: 13px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      line-height: 1.5;
+      max-width: 200px;
+    }
+
+    .mock-bubble.bot-bub {
+      background: rgba(59,126,248,0.15);
+      border: 1px solid rgba(59,126,248,0.2);
+      color: var(--text-primary);
+      border-top-left-radius: 4px;
+    }
+
+    .mock-bubble.user-bub {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text-secondary);
+      border-top-right-radius: 4px;
+    }
+
+    .mock-typing {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      padding: 10px 14px;
+      background: rgba(59,126,248,0.1);
+      border-radius: 12px;
+      border-top-left-radius: 4px;
+      border: 1px solid rgba(59,126,248,0.15);
+      width: fit-content;
+    }
+
+    .mock-typing span {
+      width: 6px; height: 6px;
+      background: var(--accent-blue);
+      border-radius: 50%;
+      animation: typing-dot 1.2s ease-in-out infinite;
+    }
+
+    .mock-typing span:nth-child(2) { animation-delay: 0.2s; }
+    .mock-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes typing-dot {
+      0%, 100% { opacity: 0.3; transform: translateY(0); }
+      50% { opacity: 1; transform: translateY(-3px); }
+    }
+
+    /* =============================================
+       HOW IT WORKS
+    ============================================= */
+    #how-it-works {
+      padding: 120px 0;
+      position: relative;
+    }
+
+    .how-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 80px;
+    }
+
+    .steps-wrap {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      position: relative;
+    }
+
+    .steps-wrap::before {
+      content: '';
+      position: absolute;
+      top: 56px; left: calc(16.666% + 28px);
+      right: calc(16.666% + 28px);
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent-blue), var(--accent-violet), var(--accent-blue));
+      opacity: 0.3;
+    }
+
+    .step-item {
+      padding: 0 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .step-number {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--grad-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 28px;
+      box-shadow: 0 0 0 8px rgba(59,126,248,0.1), 0 0 0 16px rgba(59,126,248,0.04);
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-item h3 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .step-item p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* =============================================
+       TESTIMONIALS
+    ============================================= */
+    #testimonials {
+      padding: 120px 0;
+      background: #070710;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .test-glow {
+      position: absolute;
+      right: -200px; bottom: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(ellipse, rgba(124,58,237,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .test-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 72px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .testimonial-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-xl);
+      padding: 36px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 16px; right: 24px;
+      font-size: 96px;
+      font-family: var(--font-display);
+      font-weight: 800;
+      color: rgba(59,126,248,0.06);
+      line-height: 1;
+    }
+
+    .testimonial-card:hover {
+      border-color: rgba(59,126,248,0.2);
+      transform: translateY(-3px);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.35);
+    }
+
+    .test-stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+
+    .test-stars svg { color: #f59e0b; }
+
+    .test-text {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .test-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .test-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 16px;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .test-info h4 {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .test-info p {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* =============================================
+       DIFFERENTIALS
+    ============================================= */
+    #differentials {
+      padding: 120px 0;
+    }
+
+    .diff-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .diff-left {}
+
+    .diff-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .diff-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 20px 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-lg);
+      transition: var(--transition);
+    }
+
+    .diff-item:hover {
+      border-color: rgba(59,126,248,0.2);
+      background: rgba(59,126,248,0.04);
+    }
+
+    .diff-check {
+      width: 36px; height: 36px;
+      background: rgba(37,211,102,0.1);
+      border: 1px solid rgba(37,211,102,0.2);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #25d366;
+      flex-shrink: 0;
+    }
+
+    .diff-item-text h4 {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .diff-item-text p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .diff-right {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-xl);
+      padding: 44px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .diff-right::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(59,126,248,0.15) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .metric-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .metric-value {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 800;
+      background: var(--grad-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .metric-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .stack-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .stack-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-sm);
+    }
+
+    .stack-name {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .stack-bar-wrap {
+      flex: 1;
+      height: 4px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 99px;
+      margin: 0 16px;
+      overflow: hidden;
+    }
+
+    .stack-bar {
+      height: 100%;
+      background: var(--grad-primary);
+      border-radius: 99px;
+      animation: fillBar 1.5s ease forwards;
+    }
+
+    @keyframes fillBar {
+      from { width: 0%; }
+    }
+
+    .stack-pct {
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent-blue);
+    }
+
+    /* =============================================
+       CTA SECTION
+    ============================================= */
+    #cta {
+      padding: 120px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-glow-left {
+      position: absolute;
+      left: -200px; top: 50%; transform: translateY(-50%);
+      width: 600px; height: 500px;
+      background: radial-gradient(ellipse, rgba(59,126,248,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .cta-glow-right {
+      position: absolute;
+      right: -200px; top: 50%; transform: translateY(-50%);
+      width: 600px; height: 500px;
+      background: radial-gradient(ellipse, rgba(124,58,237,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, rgba(59,126,248,0.08) 0%, rgba(124,58,237,0.08) 100%);
+      border: 1px solid rgba(59,126,248,0.18);
+      border-radius: var(--radius-xl);
+      padding: 80px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(59,126,248,0.05), rgba(124,58,237,0.05));
+    }
+
+    .cta-box > * { position: relative; z-index: 1; }
+
+    .cta-box h2 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .cta-box p {
+      font-size: 18px;
+      color: var(--text-secondary);
+      max-width: 540px;
+      margin: 0 auto 44px;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .cta-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .cta-note {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    footer {
+      background: #030305;
+      border-top: 1px solid var(--border-glass);
+      padding: 64px 0 28px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 56px;
+    }
+
+    .footer-brand {}
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .footer-logo img {
+      height: 36px; width: 36px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+    }
+
+    .footer-logo-text {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .footer-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 280px;
+      margin-bottom: 24px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-btn {
+      width: 36px; height: 36px;
+      background: var(--bg-glass);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .social-btn:hover {
+      background: rgba(59,126,248,0.1);
+      border-color: rgba(59,126,248,0.25);
+      color: var(--accent-blue);
+    }
+
+    .footer-col h5 {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover { color: var(--text-primary); }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-contact-item:hover { color: var(--text-primary); }
+    .footer-contact-item svg { color: var(--accent-blue); flex-shrink: 0; }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border-glass);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-bottom-text {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .footer-bottom-text a {
+      color: var(--accent-blue);
+      text-decoration: none;
+    }
+
+    /* =============================================
+       FLOATING WHATSAPP
+    ============================================= */
+    #whatsapp-float {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      z-index: 9000;
+    }
+
+    .wpp-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px; height: 60px;
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      border-radius: 50%;
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 6px 32px rgba(37,211,102,0.45);
+      transition: var(--transition);
+      position: relative;
+      animation: wpp-pulse 3s ease-in-out infinite;
+    }
+
+    .wpp-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 44px rgba(37,211,102,0.6);
+    }
+
+    .wpp-btn::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: rgba(37,211,102,0.2);
+      animation: wpp-ring 3s ease-in-out infinite;
+    }
+
+    .wpp-btn::after {
+      content: '';
+      position: absolute;
+      inset: -10px;
+      border-radius: 50%;
+      background: rgba(37,211,102,0.08);
+      animation: wpp-ring 3s ease-in-out infinite 0.4s;
+    }
+
+    @keyframes wpp-pulse {
+      0%, 100% { box-shadow: 0 6px 32px rgba(37,211,102,0.45); }
+      50% { box-shadow: 0 6px 48px rgba(37,211,102,0.65); }
+    }
+
+    @keyframes wpp-ring {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.08); opacity: 0.4; }
+    }
+
+    .wpp-tooltip {
+      position: absolute;
+      right: 72px;
+      top: 50%; transform: translateY(-50%);
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-sm);
+      padding: 8px 14px;
+      white-space: nowrap;
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition);
+    }
+
+    #whatsapp-float:hover .wpp-tooltip {
+      opacity: 1;
+    }
+
+    /* =============================================
+       ANIMATIONS
+    ============================================= */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* =============================================
+       MOBILE MENU
+    ============================================= */
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: rgba(5,5,8,0.97);
+      backdrop-filter: blur(20px);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      transform: translateX(100%);
+      transition: var(--transition-slow);
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    .mobile-menu a {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .mobile-menu a:hover { color: var(--accent-blue); }
+
+    .mobile-close {
+      position: absolute;
+      top: 20px; right: 24px;
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      color: var(--text-secondary);
+    }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 1024px) {
+      .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .diff-layout { grid-template-columns: 1fr; gap: 48px; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta .btn-ghost { display: none; }
+      .hamburger { display: flex; }
+      .benefits-grid { grid-template-columns: 1fr; }
+      .steps-wrap { grid-template-columns: 1fr; gap: 48px; }
+      .steps-wrap::before { display: none; }
+      .hero-stats { gap: 24px; flex-wrap: wrap; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .cta-box { padding: 48px 28px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .service-card { padding: 32px; }
+    }
+  </style>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Luiz do AutoZapp",
+    "description": "Automação de WhatsApp, sistemas de agendamento, criação de sites profissionais e sistemas personalizados para pequenas e médias empresas.",
+    "url": "https://luizdoautozapp.com.br",
+    "telephone": "+55-13-99759-5234",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+55-13-99759-5234",
+      "contactType": "customer service",
+      "availableLanguage": "Portuguese"
+    },
+    "offers": [
+      { "@type": "Offer", "name": "Automação de WhatsApp" },
+      { "@type": "Offer", "name": "Sistema de Agendamento" },
+      { "@type": "Offer", "name": "Criação de Sites Profissionais" },
+      { "@type": "Offer", "name": "Sistemas Personalizados" }
+    ]
+  }
+  </script>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <div class="logo-icon">L</div>
-                <div class="logo-text">
-                    <h1>Luiz do AutoZapp</h1>
-                    <p>Sites PWA + Automação WhatsApp</p>
-                </div>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <span class="mobile-close" id="mobileClose">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </span>
+    <a href="#services" onclick="closeMobile()">Serviços</a>
+    <a href="#how-it-works" onclick="closeMobile()">Como Funciona</a>
+    <a href="#testimonials" onclick="closeMobile()">Depoimentos</a>
+    <a href="https://wa.me/5513997595234" target="_blank" rel="noopener" style="color:#25d366">Falar no WhatsApp</a>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" role="navigation" aria-label="Navegação principal">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo" aria-label="Luiz do AutoZapp - Início">
+          <img src="logo.jpg" alt="Logo Luiz do AutoZapp" loading="lazy" />
+          <div class="nav-logo-text">
+            AutoZapp
+            <span>Automação & Sistemas</span>
+          </div>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#services">Serviços</a></li>
+          <li><a href="#how-it-works">Como Funciona</a></li>
+          <li><a href="#testimonials">Depoimentos</a></li>
+          <li><a href="#differentials">Diferenciais</a></li>
+        </ul>
+
+        <div class="nav-cta">
+          <a href="#services" class="btn btn-ghost" style="padding:10px 20px;font-size:14px;">Ver Soluções</a>
+          <a href="https://wa.me/5513997595234" class="btn btn-whatsapp" style="padding:10px 20px;font-size:14px;" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Falar no WhatsApp
+          </a>
+          <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" aria-label="Banner principal">
+    <div class="hero-video-wrap">
+      <video autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+        <source src="hero.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Automação Inteligente para Empresas
+        </div>
+
+        <h1 class="hero-h1">
+          Automatize seu<br />
+          atendimento e aumente<br />
+          <span class="line-accent">suas vendas no piloto</span><br />
+          automático
+        </h1>
+
+        <p class="hero-sub">
+          Sistemas inteligentes, automações e sites profissionais para empresas que querem crescer de verdade — sem complicação.
+        </p>
+
+        <div class="hero-actions">
+          <a href="https://wa.me/5513997595234" class="btn btn-whatsapp" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Falar no WhatsApp
+          </a>
+          <a href="#services" class="btn btn-ghost">
+            Ver soluções
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7,7 17,7 17,17"/></svg>
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat-item">
+            <span class="hero-stat-num">200+</span>
+            <span class="hero-stat-label">Empresas atendidas</span>
+          </div>
+          <div class="hero-stat-item">
+            <span class="hero-stat-num">98%</span>
+            <span class="hero-stat-label">Satisfação dos clientes</span>
+          </div>
+          <div class="hero-stat-item">
+            <span class="hero-stat-num">24h</span>
+            <span class="hero-stat-label">Atendimento automático</span>
+          </div>
+          <div class="hero-stat-item">
+            <span class="hero-stat-num">3×</span>
+            <span class="hero-stat-label">Aumento médio em vendas</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAND -->
+  <div id="trust-band" aria-hidden="true">
+    <div class="trust-scroll">
+      <!-- Duplicated for infinite scroll -->
+      <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Automação de WhatsApp</div>
+      <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Sistemas de Agendamento</div>
+      <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Chatbot 24 horas</div>
+      <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Sites Profissionais</div>
+      <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Petshops • Pizzarias • Oficinas</div>
+      <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Suporte Dedicado</div>
+      <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Entrega Rápida</div>
+      <!-- Duplicate -->
+      <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Automação de WhatsApp</div>
+      <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Sistemas de Agendamento</div>
+      <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Chatbot 24 horas</div>
+      <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Sites Profissionais</div>
+      <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Petshops • Pizzarias • Oficinas</div>
+      <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Suporte Dedicado</div>
+      <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Entrega Rápida</div>
+    </div>
+  </div>
+
+  <!-- BENEFITS -->
+  <section id="benefits" aria-labelledby="benefits-title">
+    <div class="container">
+      <div class="benefits-header reveal">
+        <div class="section-label">Por que automação?</div>
+        <h2 class="section-title" id="benefits-title">
+          Sua empresa trabalhando<br />mesmo enquanto você dorme
+        </h2>
+        <p class="section-desc">Enquanto seus concorrentes respondem mensagens manualmente, seus clientes já são atendidos, agendados e convertidos — de forma automática.</p>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-card reveal reveal-delay-1">
+          <div class="benefit-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>Atendimento 24h por dia</h3>
+          <p>Seu WhatsApp responde clientes às 3 da manhã, no feriado, no fim de semana. Sem perder uma única oportunidade de venda.</p>
+        </div>
+        <div class="benefit-card reveal reveal-delay-2">
+          <div class="benefit-icon" style="background:rgba(124,58,237,0.1);border-color:rgba(124,58,237,0.18);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color:#a855f7"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h3>Respostas instantâneas</h3>
+          <p>Clientes impacientes vão embora em menos de 1 minuto. Com automação, a resposta é imediata — e a venda acontece.</p>
+        </div>
+        <div class="benefit-card reveal reveal-delay-3">
+          <div class="benefit-icon" style="background:rgba(37,211,102,0.1);border-color:rgba(37,211,102,0.18);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color:#25d366"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Zero erro humano</h3>
+          <p>Nada de informação errada, esquecimento ou promessa que não foi cumprida. O sistema é preciso, consistente e confiável.</p>
+        </div>
+        <div class="benefit-card reveal reveal-delay-1">
+          <div class="benefit-icon" style="background:rgba(6,214,255,0.1);border-color:rgba(6,214,255,0.18);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color:#06d6ff"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Escala sem contratar</h3>
+          <p>Atenda 1 ou 1.000 clientes ao mesmo tempo sem aumentar sua equipe. Cresça o negócio sem crescer os custos.</p>
+        </div>
+        <div class="benefit-card reveal reveal-delay-2">
+          <div class="benefit-icon" style="background:rgba(245,158,11,0.1);border-color:rgba(245,158,11,0.18);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color:#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <h3>Mais avaliações 5 estrelas</h3>
+          <p>Pós-venda automático solicita avaliações no momento certo, aumentando sua reputação no Google e redes sociais.</p>
+        </div>
+        <div class="benefit-card reveal reveal-delay-3">
+          <div class="benefit-icon" style="background:rgba(239,68,68,0.1);border-color:rgba(239,68,68,0.18);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color:#ef4444"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          </div>
+          <h3>Vendas em piloto automático</h3>
+          <p>Funis de vendas automáticos que nutrem, convencem e fecham. Você foca no negócio enquanto o sistema trabalha.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" aria-labelledby="services-title">
+    <div class="services-glow" aria-hidden="true"></div>
+    <div class="container">
+      <div class="services-header reveal">
+        <div class="section-label">O que fazemos</div>
+        <h2 class="section-title" id="services-title">Soluções completas para<br />sua empresa crescer</h2>
+        <p class="section-desc">De automação de atendimento a sistemas completos — tudo o que sua empresa precisa para operar em outro nível.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Featured -->
+        <article class="service-card featured reveal">
+          <div class="service-content">
+            <div class="service-num">01 — Carro-chefe</div>
+            <div class="service-icon-wrap">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
             </div>
-            <a href="https://wa.me/5519971669134" class="contact-btn" target="_blank">
-                <span>💬</span>
-                <span>Contato</span>
+            <h2>Automação de WhatsApp</h2>
+            <p>Transforme seu WhatsApp em uma máquina de vendas que trabalha 24 horas por dia. Chatbot inteligente, respostas automáticas, funil de vendas e muito mais — tudo integrado ao seu negócio.</p>
+            <div class="service-tags">
+              <span class="service-tag">Chatbot IA</span>
+              <span class="service-tag">Respostas automáticas</span>
+              <span class="service-tag">Funil de vendas</span>
+              <span class="service-tag">Agendamento</span>
+              <span class="service-tag">Pós-venda</span>
+            </div>
+            <br/>
+            <a href="https://wa.me/5513997595234" class="btn btn-primary" target="_blank" rel="noopener" style="margin-top:8px;width:fit-content;">
+              Quero automatizar meu WhatsApp
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7,7 17,7 17,17"/></svg>
             </a>
-        </div>
-    </header>
+          </div>
+          <div class="service-visual">
+            <div style="font-family:var(--font-display);font-size:12px;color:var(--text-muted);margin-bottom:8px;letter-spacing:0.06em;text-transform:uppercase;">Preview ao vivo</div>
+            <div class="mock-chat-msg bot">
+              <div class="mock-avatar bot-av">🤖</div>
+              <div class="mock-bubble bot-bub">Olá! Bem-vindo ao Petshop do João! Como posso ajudar? 🐾</div>
+            </div>
+            <div class="mock-chat-msg user">
+              <div class="mock-avatar user-av">👤</div>
+              <div class="mock-bubble user-bub">Quero agendar banho para meu cachorro</div>
+            </div>
+            <div class="mock-chat-msg bot">
+              <div class="mock-avatar bot-av">🤖</div>
+              <div class="mock-bubble bot-bub">Ótimo! Temos horários disponíveis amanhã às 10h, 14h ou 16h. Qual prefere?</div>
+            </div>
+            <div class="mock-chat-msg user">
+              <div class="mock-avatar user-av">👤</div>
+              <div class="mock-bubble user-bub">14h perfeito!</div>
+            </div>
+            <div class="mock-chat-msg bot">
+              <div class="mock-avatar bot-av">🤖</div>
+              <div class="mock-typing"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+        </article>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>Seu Negócio no Próximo Nível</h1>
-                <p>Sites PWA ultrarrápidos com automação de WhatsApp. Aumentar vendas, engajar clientes e crescer exponencialmente.</p>
-                <div class="hero-buttons">
-                    <a href="https://wa.me/5519971669134" class="btn btn-primary" target="_blank">
-                        Começar Agora →
-                    </a>
-                    <button class="btn btn-secondary" onclick="document.querySelector('.segments').scrollIntoView({behavior: 'smooth'})">
-                        Saiba Mais
-                    </button>
-                </div>
-                <p class="hero-guarantee">✓ Pagamento somente após implantação perfeita</p>
-            </div>
-            <div class="hero-image">
-                <img src="https://private-us-east-1.manuscdn.com/sessionFile/2GzjUlU8RrQHx20D0twTMc/sandbox/atSBFxdomzTnzXUWE6HDKC-img-4_1770160702000_na1fn_YnVzaW5lc3MtZ3Jvd3Ro.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvMkd6alVsVThSclFIeDIwRDB0d1RNYy9zYW5kYm94L2F0U0JGeGRvbXpUbnpYVVdFNkhES0MtaW1nLTRfMTc3MDE2MDcwMjAwMF9uYTFmbl9ZblZ6YVc1bGMzTXRaM0p2ZDNSby5wbmc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=mAaJ0RSG7rzfp-Z3jQ2fgVYHom2Detbm6iTujE9Jm~Cn~t0LmDztCyDFpCu6E5-l9roMqfjSPVTUOsSnpvaDpCfa8mtZW5BAU~hspZ4QhoAeO4HPGerAFxGAf75k6ntMDqogAhdODNkbOW~2VmBV6S6ryDldwAam8yc07NbXen79LN67XgQF-1DVIURb8~ZYfjCYx3tS87MWxrqiFon9oH6Nj8F1E5qbhKnwSvCgw~y-INtOLIJsAMnBnMM0gJPQJkGe9JtePh871x9PEuKU3BenvfIHdcU4IK4-CIES0~WIimZziGKa~Ywkzd0eKIBuJR1YnxplLEpdZk68C8UUkg__" alt="Crescimento de negócios">
-            </div>
-        </div>
-    </section>
+        <article class="service-card reveal reveal-delay-1">
+          <div class="service-arrow" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7,7 17,7 17,17"/></svg>
+          </div>
+          <div class="service-num">02</div>
+          <div class="service-icon-wrap">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h2>Sistemas de Agendamento</h2>
+          <p>Seu cliente agenda pelo WhatsApp, recebe confirmação automática, lembrete antes do horário e aviso de cancelamento. Zero papel, zero confusão.</p>
+          <div class="service-tags">
+            <span class="service-tag">Confirmação automática</span>
+            <span class="service-tag">Lembretes</span>
+            <span class="service-tag">Cancelamento online</span>
+          </div>
+        </article>
 
-    <!-- Benefits Section -->
-    <section class="benefits">
-        <div class="benefits-container">
-            <h2 class="section-title">Por que escolher PWA + WhatsApp?</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">⚡</div>
-                    <h3>Velocidade Extrema</h3>
-                    <p>Carregamento em milissegundos com PWA</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">📱</div>
-                    <h3>Funciona Offline</h3>
-                    <p>Seu site continua acessível sem internet</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">💬</div>
-                    <h3>Notificações Push</h3>
-                    <p>Mantenha clientes engajados com mensagens</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">📈</div>
-                    <h3>Crescimento Garantido</h3>
-                    <p>Aumento de vendas e engajamento comprovado</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <article class="service-card reveal reveal-delay-2">
+          <div class="service-arrow" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7,7 17,7 17,17"/></svg>
+          </div>
+          <div class="service-num">03</div>
+          <div class="service-icon-wrap" style="background:rgba(6,214,255,0.08);border-color:rgba(6,214,255,0.15);">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color:#06d6ff"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+          </div>
+          <h2>Criação de Sites Profissionais</h2>
+          <p>Sites modernos, rápidos e otimizados para o Google que passam credibilidade e convertem visitantes em clientes. Mobile-first e com foco em vendas.</p>
+          <div class="service-tags">
+            <span class="service-tag" style="color:#06d6ff;background:rgba(6,214,255,0.08);border-color:rgba(6,214,255,0.15);">SEO otimizado</span>
+            <span class="service-tag" style="color:#06d6ff;background:rgba(6,214,255,0.08);border-color:rgba(6,214,255,0.15);">Mobile-first</span>
+            <span class="service-tag" style="color:#06d6ff;background:rgba(6,214,255,0.08);border-color:rgba(6,214,255,0.15);">Alta conversão</span>
+          </div>
+        </article>
 
-    <!-- Segments Section -->
-    <section class="segments">
-        <div class="segments-container">
-            <h2 class="section-title">Soluções para Todos os Segmentos</h2>
-            <p class="segments-subtitle">Clínicas, veterinárias, pizzarias, floriculturas, petshops, mecânicas e muito mais. Cada negócio tem uma solução personalizada.</p>
-            <div class="segments-grid">
-                <div class="segment-card">
-                    <div class="segment-emoji">🏥</div>
-                    <h3>Clínicas</h3>
-                    <p>Agendamentos automáticos, lembretes de consultas e gestão de pacientes via WhatsApp</p>
-                    <p class="segment-keywords">site para clínica, agendamento online, clínica com PWA</p>
-                </div>
-                <div class="segment-card">
-                    <div class="segment-emoji">🐾</div>
-                    <h3>Veterinárias</h3>
-                    <p>Controle de consultas, vacinações e comunicação com donos de pets</p>
-                    <p class="segment-keywords">site para veterinária, agendamento veterinário, PWA veterinária</p>
-                </div>
-                <div class="segment-card">
-                    <div class="segment-emoji">🍕</div>
-                    <h3>Pizzarias</h3>
-                    <p>Pedidos automáticos, notificações de entrega e fidelização de clientes</p>
-                    <p class="segment-keywords">site para pizzaria, pedidos online, automação pizzaria</p>
-                </div>
-                <div class="segment-card">
-                    <div class="segment-emoji">🌸</div>
-                    <h3>Floriculturas</h3>
-                    <p>Catálogo de flores, agendamentos de entregas e ofertas especiais</p>
-                    <p class="segment-keywords">site para floricultura, venda de flores online, PWA floricultura</p>
-                </div>
-                <div class="segment-card">
-                    <div class="segment-emoji">🐕</div>
-                    <h3>Petshops</h3>
-                    <p>Agendamentos de banho, vacinação e programa de fidelização</p>
-                    <p class="segment-keywords">site para petshop, agendamento petshop, fidelização clientes</p>
-                </div>
-                <div class="segment-card">
-                    <div class="segment-emoji">🔧</div>
-                    <h3>Mecânicas</h3>
-                    <p>Agendamentos de manutenção, orçamentos automáticos e histórico de serviços</p>
-                    <p class="segment-keywords">site para mecânica, agendamento mecânica, fidelização clientes</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <article class="service-card reveal reveal-delay-1">
+          <div class="service-arrow" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7,7 17,7 17,17"/></svg>
+          </div>
+          <div class="service-num">04</div>
+          <div class="service-icon-wrap" style="background:rgba(124,58,237,0.08);border-color:rgba(124,58,237,0.15);">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color:#a855f7"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h2>Sistemas Personalizados</h2>
+          <p>Controle de estoque, gestão de pedidos, CRM, dashboard de vendas — desenvolvemos o sistema que o seu negócio precisa, do zero, para você.</p>
+          <div class="service-tags">
+            <span class="service-tag" style="color:#a855f7;background:rgba(124,58,237,0.08);border-color:rgba(124,58,237,0.15);">100% personalizado</span>
+            <span class="service-tag" style="color:#a855f7;background:rgba(124,58,237,0.08);border-color:rgba(124,58,237,0.15);">Integração WhatsApp</span>
+            <span class="service-tag" style="color:#a855f7;background:rgba(124,58,237,0.08);border-color:rgba(124,58,237,0.15);">Dashboard</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-    <!-- Why Choose Section -->
-    <section class="why-choose">
-        <div class="why-choose-container">
-            <div class="why-choose-image">
-                <img src="https://private-us-east-1.manuscdn.com/sessionFile/2GzjUlU8RrQHx20D0twTMc/sandbox/atSBFxdomzTnzXUWE6HDKC-img-2_1770160700000_na1fn_d2hhdHNhcHAtYXV0b21hdGlvbg.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvMkd6alVsVThSclFIeDIwRDB0d1RNYy9zYW5kYm94L2F0U0JGeGRvbXpUbnpYVVdFNkhES0MtaW1nLTJfMTc3MDE2MDcwMDAwMF9uYTFmbl9kMmhoZEhOaGNIQXRZWFYwYjIxaGRHbHZiZy5wbmc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=LH3fF~IHr5yozFSUWRsgH289ONSsLnP60OTBK7ds-ZJ-d1mu3YVRdWD-TviryPVzLUxTHEiIinCOwS7Zimg~8QRBqsb9lZxwU3vzk0jGdpUHNmLPRntgOn~rsqDY2NR6~h9P1MJ~dqvJ9pUe5P1yuRlj5IccLpie2-OWUqU~VxjFG61US0CoUSWpuWaIIrNE-DJYCgeMqUmtu28tmkFhz~G4n166psORZjcw5~Ej5Wa2I8zyuohbHcOeZNikfkhmLp1WmlTzSLnMDoJ5lwbY5fhunJdUiR839uPkI2ATlNt4QXLb06WtnxyPcYXnIchStRY2b~lIea4cjZn~CE2Kcw__" alt="Automação WhatsApp">
-            </div>
-            <div class="why-choose-content">
-                <h2>Por que escolher Luiz do AutoZapp?</h2>
-                <div class="reasons-list">
-                    <div class="reason-item">
-                        <span class="reason-check">✓</span>
-                        <span class="reason-text">Preços justos e acessíveis para qualquer negócio</span>
-                    </div>
-                    <div class="reason-item">
-                        <span class="reason-check">✓</span>
-                        <span class="reason-text">Facilitação de pagamento em parcelas</span>
-                    </div>
-                    <div class="reason-item">
-                        <span class="reason-check">✓</span>
-                        <span class="reason-text">Garantia total do serviço</span>
-                    </div>
-                    <div class="reason-item">
-                        <span class="reason-check">✓</span>
-                        <span class="reason-text">Pagamento somente após implantação e funcionamento perfeito</span>
-                    </div>
-                    <div class="reason-item">
-                        <span class="reason-check">✓</span>
-                        <span class="reason-text">Suporte especializado em PWA e automação WhatsApp</span>
-                    </div>
-                    <div class="reason-item">
-                        <span class="reason-check">✓</span>
-                        <span class="reason-text">SEO otimizado para sua região (Vila Mariana, SP)</span>
-                    </div>
-                </div>
-                <a href="https://wa.me/5519971669134" class="btn btn-primary" target="_blank">
-                    Falar com Especialista 💬
-                </a>
-            </div>
-        </div>
-    </section>
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" aria-labelledby="how-title">
+    <div class="container">
+      <div class="how-header reveal">
+        <div class="section-label">Processo simples</div>
+        <h2 class="section-title" id="how-title">Do contato à entrega<br />em 3 passos</h2>
+        <p class="section-desc">Sem burocracia, sem enrolação. Você me conta o que precisa, e eu entrego funcionando.</p>
+      </div>
 
-    <!-- PWA Section -->
-    <section class="pwa-section">
-        <div class="pwa-container">
-            <div class="pwa-content">
-                <h2>Tecnologia PWA de Ponta</h2>
-                <p>Progressive Web Apps são a evolução dos sites tradicionais. Combinam o melhor da web com a experiência de um aplicativo nativo.</p>
-                <div class="pwa-features">
-                    <div class="feature-item">
-                        <span class="feature-icon">⚡</span>
-                        <span>Carregamento em milissegundos</span>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">📱</span>
-                        <span>Funciona offline e online</span>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">💬</span>
-                        <span>Notificações push em tempo real</span>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">🔍</span>
-                        <span>SEO otimizado para Google</span>
-                    </div>
-                </div>
-            </div>
-            <div class="pwa-image">
-                <img src="https://private-us-east-1.manuscdn.com/sessionFile/2GzjUlU8RrQHx20D0twTMc/sandbox/atSBFxdomzTnzXUWE6HDKC-img-3_1770160700000_na1fn_cHdhLXNob3djYXNl.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvMkd6alVsVThSclFIeDIwRDB0d1RNYy9zYW5kYm94L2F0U0JGeGRvbXpUbnpYVVdFNkhES0MtaW1nLTNfMTc3MDE2MDcwMDAwMF9uYTFmbl9jSGRoTFhOb2IzZGpZWE5sLnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE5MjAsaF8xOTIwL2Zvcm1hdCx3ZWJwL3F1YWxpdHkscV84MCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=KpREpEdYB49nLjPpsiUleFX25haE70P~puRGEqgQpxV0m3mhHDb4XtqsB0Ef39tJiENLAZxxkpxjIj43-iwkHd1ySsclMHNmNMA2yqngWfg9~R51pB9w3kxiFX5Etw6lK6IhxRZBsmaEUAz8nVtbQVGY1T1eyqO2WDQCbfX3gi1iD9wWCROBdYki6YNK-qkwMrQoh70IGFrdaB5rcgD~QjAHPEjaU0i3g1zFvkmBwxlMLLrRQ84M6w2wTHSRRWZ1pD9cW4o6t5U9fScrS~t4lBLU1EYTYG26y8vkaNXfbijjGrQMDTn7bmw6KQ2znCFarBQGmRU0Oshj1KdYwiv6ZA__" alt="PWA Showcase">
-            </div>
+      <div class="steps-wrap">
+        <div class="step-item reveal reveal-delay-1">
+          <div class="step-number">1</div>
+          <h3>Diagnóstico gratuito</h3>
+          <p>Me chama no WhatsApp, conta o seu negócio e os problemas que quer resolver. Analiso sua situação e indico a melhor solução sem custo.</p>
         </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="cta-container">
-            <h2>Pronto para transformar seu negócio?</h2>
-            <p>Contate Luiz agora e receba uma proposta personalizada. Pagamento somente após a implantação perfeita!</p>
-            <div class="cta-buttons">
-                <a href="https://wa.me/5519971669134" class="btn-cta-primary" target="_blank">
-                    Conversar no WhatsApp 💬
-                </a>
-                <button class="btn-cta-secondary" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-                    Ver Portfólio
-                </button>
-            </div>
+        <div class="step-item reveal reveal-delay-2">
+          <div class="step-number">2</div>
+          <h3>Desenvolvimento ágil</h3>
+          <p>Você aprova a proposta e eu começo a desenvolver. Te mantenho atualizado em cada etapa com demonstrações e ajustes em tempo real.</p>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>Luiz do AutoZapp</h3>
-                    <p>Especialista em sites PWA e automação de WhatsApp para transformar seu negócio.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Contato</h3>
-                    <div class="footer-contact">
-                        <span>📞</span>
-                        <a href="tel:+5519971669134">(19) 97166-9134</a>
-                    </div>
-                    <div class="footer-contact">
-                        <span>📍</span>
-                        <span>Vila Mariana, São Paulo - SP</span>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3>Serviços</h3>
-                    <p><a href="#pwa">Sites PWA</a></p>
-                    <p><a href="#automacao">Automação WhatsApp</a></p>
-                    <p><a href="#notificacoes">Notificações Push</a></p>
-                    <p><a href="#seo">SEO Local</a></p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Luiz do AutoZapp. Todos os direitos reservados.</p>
-                <p style="font-size: 0.75rem; margin-top: 0.5rem;">Especialista em sites PWA, automação WhatsApp, notificações Firebase | Vila Mariana, São Paulo</p>
-            </div>
+        <div class="step-item reveal reveal-delay-3">
+          <div class="step-number">3</div>
+          <h3>Entrega e suporte</h3>
+          <p>Sistema entregue, funcionando e com treinamento incluso. Suporte contínuo para garantir que tudo funcione perfeitamente sempre.</p>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/5519971669134" class="whatsapp-btn" title="Conversar no WhatsApp" target="_blank">
-        💬
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" aria-labelledby="test-title">
+    <div class="test-glow" aria-hidden="true"></div>
+    <div class="container">
+      <div class="test-header reveal">
+        <div class="section-label">Prova social</div>
+        <h2 class="section-title" id="test-title">O que os clientes<br />estão dizendo</h2>
+        <p class="section-desc">Resultados reais de empresas que pararam de perder dinheiro com atendimento manual.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="test-stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="test-text">Antes eu ficava respondendo WhatsApp até meia-noite. Depois da automação do Luiz, tudo ficou automático. Meu petshop triplicou o número de agendamentos em 2 meses. Sensacional!</p>
+          <div class="test-author">
+            <div class="test-avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">M</div>
+            <div class="test-info">
+              <h4>Mariana S.</h4>
+              <p>Dona do Petshop Amigo Fiel</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="test-stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="test-text">O Luiz fez o sistema de pedidos da minha pizzaria. Os clientes fazem o pedido pelo WhatsApp, cai direto no sistema e eu aviso o status automático. Diminuí erros em 90% e o movimento aumentou muito.</p>
+          <div class="test-author">
+            <div class="test-avatar" style="background:linear-gradient(135deg,#ef4444,#dc2626)">R</div>
+            <div class="test-info">
+              <h4>Roberto A.</h4>
+              <p>Dono da Pizzaria Bella Nápoli</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-3">
+          <div class="test-stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="test-text">Minha oficina tinha um caderninho de agendamentos. O Luiz criou um sistema completo com confirmações automáticas, lembretes e histórico de cada cliente. Profissionalismo de outro nível!</p>
+          <div class="test-author">
+            <div class="test-avatar" style="background:linear-gradient(135deg,#3b7ef8,#7c3aed)">C</div>
+            <div class="test-info">
+              <h4>Carlos M.</h4>
+              <p>Dono da Oficina Speed Car</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFFERENTIALS -->
+  <section id="differentials" aria-labelledby="diff-title">
+    <div class="container">
+      <div class="diff-layout">
+        <div class="diff-left">
+          <div class="section-label reveal">Por que o AutoZapp?</div>
+          <h2 class="section-title reveal" id="diff-title" style="margin-bottom:0;">Não é qualquer<br />automação — é a<br /><span class="gradient-text">certa para você</span></h2>
+          <div class="diff-list">
+            <div class="diff-item reveal reveal-delay-1">
+              <div class="diff-check">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="diff-item-text">
+                <h4>Especialista em pequenas e médias empresas</h4>
+                <p>Conheço os desafios reais do seu negócio. Não vendo solução genérica — entrego o que funciona para petshops, pizzarias, oficinas e muito mais.</p>
+              </div>
+            </div>
+            <div class="diff-item reveal reveal-delay-2">
+              <div class="diff-check">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="diff-item-text">
+                <h4>Entrega rápida e sem enrolação</h4>
+                <p>Enquanto outros prometem e demoram meses, eu entrego funcionando em dias. Ágil, direto ao ponto e sem burocracia.</p>
+              </div>
+            </div>
+            <div class="diff-item reveal reveal-delay-3">
+              <div class="diff-check">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="diff-item-text">
+                <h4>Suporte humano e acessível</h4>
+                <p>Você fala comigo diretamente no WhatsApp. Sem ticket de suporte, sem robô, sem esperar dias. Resposta rápida sempre.</p>
+              </div>
+            </div>
+            <div class="diff-item reveal reveal-delay-4">
+              <div class="diff-check">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="diff-item-text">
+                <h4>Preço justo pelo resultado entregue</h4>
+                <p>Soluções de nível corporativo a preços que cabem no orçamento de PMEs. Você paga pelo resultado, não pelo nome da empresa.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="diff-right reveal reveal-delay-2">
+          <div style="font-family:var(--font-display);font-size:13px;font-weight:600;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:24px;">Resultados dos clientes</div>
+          <div class="metrics-grid">
+            <div class="metric-item">
+              <div class="metric-value">3×</div>
+              <div class="metric-label">Mais agendamentos</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-value">-90%</div>
+              <div class="metric-label">Erros de atendimento</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-value">24h</div>
+              <div class="metric-label">Disponibilidade</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-value">+200</div>
+              <div class="metric-label">Clientes felizes</div>
+            </div>
+          </div>
+
+          <div style="font-family:var(--font-display);font-size:12px;font-weight:600;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px;margin-top:8px;">Tecnologias usadas</div>
+          <div class="stack-list">
+            <div class="stack-item">
+              <span class="stack-name">WhatsApp API</span>
+              <div class="stack-bar-wrap"><div class="stack-bar" style="width:96%"></div></div>
+              <span class="stack-pct">96%</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-name">Automação N8N</span>
+              <div class="stack-bar-wrap"><div class="stack-bar" style="width:92%"></div></div>
+              <span class="stack-pct">92%</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-name">Web Development</span>
+              <div class="stack-bar-wrap"><div class="stack-bar" style="width:88%"></div></div>
+              <span class="stack-pct">88%</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-name">IA & Chatbots</span>
+              <div class="stack-bar-wrap"><div class="stack-bar" style="width:85%"></div></div>
+              <span class="stack-pct">85%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta" aria-labelledby="cta-title">
+    <div class="cta-glow-left" aria-hidden="true"></div>
+    <div class="cta-glow-right" aria-hidden="true"></div>
+    <div class="container">
+      <div class="cta-box reveal">
+        <div class="section-label" style="display:inline-flex;margin-bottom:24px;">Comece agora</div>
+        <h2 id="cta-title">
+          Pronto para parar de perder<br />
+          <span class="gradient-text">clientes e dinheiro?</span>
+        </h2>
+        <p>Consulta gratuita, sem compromisso. Me conta o que sua empresa precisa e eu mostro como a automação pode transformar seus resultados.</p>
+        <div class="cta-actions">
+          <a href="https://wa.me/5513997595234?text=Olá%20Luiz!%20Quero%20saber%20mais%20sobre%20automação%20para%20minha%20empresa." class="btn btn-whatsapp" style="font-size:16px;padding:16px 36px;" target="_blank" rel="noopener">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Falar com o Luiz agora
+          </a>
+        </div>
+        <p class="cta-note">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Respondo em até 2 horas •  Diagnóstico gratuito • Sem compromisso
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="logo.jpg" alt="Logo Luiz do AutoZapp" loading="lazy" />
+            <span class="footer-logo-text">Luiz do AutoZapp</span>
+          </div>
+          <p class="footer-desc">Automação de WhatsApp, sistemas de agendamento, desenvolvimento de sistemas e sites profissionais para pequenas e médias empresas.</p>
+          <div class="footer-social">
+            <a href="https://wa.me/5513997595234" class="social-btn" aria-label="WhatsApp" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Serviços</h5>
+          <ul class="footer-links">
+            <li><a href="#services">Automação de WhatsApp</a></li>
+            <li><a href="#services">Sistemas de Agendamento</a></li>
+            <li><a href="#services">Criação de Sites</a></li>
+            <li><a href="#services">Sistemas Personalizados</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Segmentos</h5>
+          <ul class="footer-links">
+            <li><a href="#services">Petshops</a></li>
+            <li><a href="#services">Pizzarias e Restaurantes</a></li>
+            <li><a href="#services">Oficinas Mecânicas</a></li>
+            <li><a href="#services">Clínicas e Consultórios</a></li>
+            <li><a href="#services">Salões de Beleza</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Contato</h5>
+          <a href="https://wa.me/5513997595234" class="footer-contact-item" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            +55 13 99759-5234
+          </a>
+          <a href="https://luizdoautozapp.com.br" class="footer-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            luizdoautozapp.com.br
+          </a>
+          <div style="margin-top:16px;">
+            <a href="https://wa.me/5513997595234?text=Olá%20Luiz!%20Quero%20uma%20consultoria%20gratuita!" class="btn btn-whatsapp" style="font-size:14px;padding:12px 20px;" target="_blank" rel="noopener">
+              Consultoria Gratuita
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-bottom-text">© 2025 Luiz do AutoZapp. Todos os direitos reservados. | <a href="https://luizdoautozapp.com.br">luizdoautozapp.com.br</a></p>
+        <p class="footer-bottom-text">Automação de WhatsApp • Sistemas de Agendamento • Desenvolvimento Web</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <div id="whatsapp-float">
+    <a href="https://wa.me/5513997595234?text=Olá%20Luiz!%20Vim%20pelo%20site%20e%20quero%20saber%20mais!" class="wpp-btn" aria-label="Falar no WhatsApp com Luiz do AutoZapp" target="_blank" rel="noopener">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     </a>
+    <div class="wpp-tooltip">Fale com o Luiz 💬</div>
+  </div>
 
-    <!-- PWA Install Modal -->
-    <div id="installModal" class="pwa-modal">
-        <div class="pwa-modal-content">
-            <div class="pwa-modal-icon">📱</div>
-            <h2>Instale nosso App!</h2>
-            <p>Transforme sua experiência! Instale nosso App agora. É super leve, não ocupa espaço no seu celular e funciona até sem internet. Tenha o Luiz do AutoZapp sempre à mão com apenas um clique!</p>
-            <div class="pwa-modal-buttons">
-                <button id="btnInstall" class="pwa-btn-install">Instalar Agora</button>
-                <button id="btnCancelInstall" class="pwa-btn-cancel">Agora não</button>
-            </div>
-        </div>
-    </div>
+  <script>
+    // =============================================
+    // NAVBAR SCROLL
+    // =============================================
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
 
-    <!-- PWA Notification Modal -->
-    <div id="notificationModal" class="pwa-modal">
-        <div class="pwa-modal-content">
-            <div class="pwa-modal-icon">🔔</div>
-            <h2>Fique por dentro!</h2>
-            <p>Não perca nenhuma oportunidade! Ative as notificações para receber atualizações exclusivas e dicas de automação diretamente no seu celular. Prometemos enviar apenas conteúdo de valor!</p>
-            <div class="pwa-modal-buttons">
-                <button id="btnAllowNotifications" class="pwa-btn-install">Permitir</button>
-                <button id="btnCancelNotifications" class="pwa-btn-cancel">Agora não</button>
-            </div>
-        </div>
-    </div>
+    // =============================================
+    // MOBILE MENU
+    // =============================================
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileClose = document.getElementById('mobileClose');
 
-   <!-- Firebase SDKs (COMPAT - mantidos) -->
-<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics-compat.js"></script>
-
-<script>
-/* ===============================
-   VARIÁVEIS PWA / MODAIS
-================================ */
-let deferredPrompt;
-
-const installModal = document.getElementById('installModal');
-const notificationModal = document.getElementById('notificationModal');
-
-const btnInstall = document.getElementById('btnInstall');
-const btnCancelInstall = document.getElementById('btnCancelInstall');
-const btnAllowNotifications = document.getElementById('btnAllowNotifications');
-const btnCancelNotifications = document.getElementById('btnCancelNotifications');
-
-/* ===============================
-   SERVICE WORKER
-   👉 registra service-worker.js unificado
-================================ */
-let swRegistration = null;
-
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', async () => {
-    try {
-      swRegistration = await navigator.serviceWorker.register('/service-worker.js');
-      console.log('[PWA] Service Worker registrado:', swRegistration.scope);
-    } catch (err) {
-      console.error('[PWA] Erro ao registrar Service Worker:', err);
-    }
-  });
-}
-
-/* ===============================
-   DETECÇÃO iOS
-================================ */
-const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
-const isInStandaloneMode = window.navigator.standalone === true;
-
-/* ===============================
-   CAPTURA PROMPT DE INSTALAÇÃO
-================================ */
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-
-  setTimeout(() => {
-    if (!localStorage.getItem('pwaInstalled')) {
-      installModal.style.display = 'flex';
-    }
-  }, 3000);
-});
-
-/* iOS: mostra instrução manual após 3s se ainda não instalado */
-if (isIOS && !isInStandaloneMode && !localStorage.getItem('pwaInstalled')) {
-  setTimeout(() => {
-    const modalTitle = installModal.querySelector('h2');
-    const modalText  = installModal.querySelector('p');
-    const btnInstallEl = document.getElementById('btnInstall');
-
-    if (modalTitle) modalTitle.textContent = 'Instale nosso App!';
-    if (modalText)  modalText.textContent  = 'Toque no botão de compartilhar \uD83D\uDCE4 e depois em "Adicionar à Tela de Início" para instalar o app no seu iPhone.';
-    if (btnInstallEl) btnInstallEl.style.display = 'none'; /* oculta botão de install nativo */
-
-    installModal.style.display = 'flex';
-  }, 3000);
-}
-
-/* ===============================
-   BOTÕES DE INSTALAÇÃO
-================================ */
-btnInstall.addEventListener('click', async () => {
-  installModal.style.display = 'none';
-
-  if (deferredPrompt) {
-    deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-
-    if (outcome === 'accepted') {
-      console.log('[PWA] Usuário aceitou a instalação');
-      localStorage.setItem('pwaInstalled', 'true');
-      showNotificationModal();
-    }
-    deferredPrompt = null;
-  } else {
-    showNotificationModal();
-  }
-});
-
-btnCancelInstall.addEventListener('click', () => {
-  installModal.style.display = 'none';
-});
-
-/* ===============================
-   MODAL DE NOTIFICAÇÕES
-================================ */
-function showNotificationModal() {
-  if ('Notification' in window && Notification.permission === 'default') {
-    setTimeout(() => {
-      notificationModal.style.display = 'flex';
-    }, 1000);
-  }
-}
-
-btnAllowNotifications.addEventListener('click', () => {
-  notificationModal.style.display = 'none';
-  requestNotificationPermission();
-});
-
-btnCancelNotifications.addEventListener('click', () => {
-  notificationModal.style.display = 'none';
-});
-
-/* ===============================
-   FIREBASE CONFIG
-================================ */
-const firebaseConfig = {
-  apiKey: "AIzaSyAbMHvsKgPIsopW_vSrPV7Io7bVbqWd4h0",
-  authDomain: "luiz-do-autoapp-pwa-app.firebaseapp.com",
-  projectId: "luiz-do-autoapp-pwa-app",
-  storageBucket: "luiz-do-autoapp-pwa-app.firebasestorage.app",
-  messagingSenderId: "990638382810",
-  appId: "1:990638382810:web:8442eb4df7da3da320cfe3",
-  measurementId: "G-H407LF08EC"
-};
-
-/* ===============================
-   INICIALIZA FIREBASE
-================================ */
-firebase.initializeApp(firebaseConfig);
-
-const messaging = firebase.messaging();
-const analytics = firebase.analytics();
-
-/* ===============================
-   PERMISSÃO + TOKEN FCM (MELHORIA)
-================================ */
-async function requestNotificationPermission() {
-  try {
-    const permission = await Notification.requestPermission();
-
-    if (permission !== 'granted') {
-      console.warn('[FCM] Permissão negada');
-      return;
-    }
-
-    console.log('[PWA] Notificações permitidas');
-
-    const token = await messaging.getToken({
-      vapidKey: 'BNOcWSJ3NrTBknFrG8rydMAlm_ZNU7y90jUrDiGAXrYWP1UKbg98r2LyYNeSS4Xk3x2hah6Y2sqe1aSABb-fgyo',
-      serviceWorkerRegistration: swRegistration
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.add('open');
+      document.body.style.overflow = 'hidden';
     });
 
-    if (token) {
-      console.log('[FCM] Token gerado com sucesso:', token);
+    function closeMobile() {
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
 
-      new Notification('Luiz do AutoZapp', {
-        body: 'Notificações ativadas com sucesso!',
-        icon: '/icon-192.png'
+    mobileClose.addEventListener('click', closeMobile);
+
+    // =============================================
+    // SCROLL REVEAL
+    // =============================================
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
       });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-      // 👉 aqui você pode enviar o token para seu backend
-    }
-  } catch (error) {
-    console.error('[FCM] Erro ao gerar token:', error);
-  }
-}
+    revealEls.forEach(el => observer.observe(el));
 
-/* ===============================
-   MENSAGEM EM PRIMEIRO PLANO
-================================ */
-messaging.onMessage((payload) => {
-  console.log('[FCM] Mensagem em primeiro plano:', payload);
-
-  if (Notification.permission === 'granted') {
-    new Notification(payload.notification.title, {
-      body: payload.notification.body,
-      icon: '/icon-192.png'
+    // =============================================
+    // SMOOTH ANCHOR SCROLL
+    // =============================================
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
     });
-  }
-});
 
-console.log('[PWA] Luiz do AutoZapp carregado com Firebase OK');
+    // =============================================
+    // PARALLAX HERO
+    // =============================================
+    const heroGrid = document.querySelector('.hero-grid');
+    const heroGlow = document.querySelector('.hero-glow');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (heroGrid) heroGrid.style.transform = `translateY(${y * 0.15}px)`;
+      if (heroGlow) heroGlow.style.transform = `translateX(-50%) translateY(${y * 0.08}px)`;
+    }, { passive: true });
 
-/* ===============================
-   SCROLL SUAVE
-================================ */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
+    // =============================================
+    // COUNTER ANIMATION
+    // =============================================
+    function animateCount(el, target, suffix = '') {
+      const duration = 1800;
+      const start = performance.now();
+      const isFloat = target % 1 !== 0;
+      const update = now => {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const val = isFloat ? (target * ease).toFixed(1) : Math.round(target * ease);
+        el.textContent = (suffix.startsWith('+') || suffix.startsWith('-') ? suffix[0] : '') + val + (suffix.replace(/^[+-]/, ''));
+        if (progress < 1) requestAnimationFrame(update);
+      };
+      requestAnimationFrame(update);
     }
-  });
-});
 
-/* ===============================
-   ANIMAÇÕES AO SCROLL
-================================ */
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
-};
+    const statsObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const text = el.textContent;
+        if (text.includes('200+')) animateCount(el, 200, '+');
+        else if (text.includes('98%')) animateCount(el, 98, '%');
+        else if (text.includes('24h')) return;
+        else if (text.includes('3×')) return;
+        statsObserver.unobserve(el);
+      });
+    }, { threshold: 0.5 });
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
-      observer.unobserve(entry.target);
-    }
-  });
-}, observerOptions);
-
-document.querySelectorAll('.benefit-card, .segment-card').forEach(el => {
-  observer.observe(el);
-});
-</script>
-
-
+    document.querySelectorAll('.hero-stat-num').forEach(el => statsObserver.observe(el));
+  </script>
 </body>
 </html>
