@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Automação de WhatsApp com chatbot inteligente. Atendimento 24h, qualificação de leads, venda automática. Integração WhatsApp Business API. Luiz do AutoZapp." />
+  <meta name="keywords" content="automação WhatsApp, chatbot WhatsApp, bot WhatsApp, automação atendimento, WhatsApp Business, qualificar leads, responder automático" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <meta name="author" content="Luiz do AutoZapp" />
+  <link rel="canonical" href="https://luizdoautozapp.com.br/automacao-de-whatsapp" />
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://luizdoautozapp.com.br/automacao-de-whatsapp" />
+  <meta property="og:title" content="Automação de WhatsApp | Chatbot 24h | Luiz do AutoZapp" />
+  <meta property="og:description" content="Chatbot que atende 24h, qualifica leads e vende. Seu WhatsApp trabalhando enquanto você dorme." />
+  <meta property="og:locale" content="pt_BR" />
+  
+  <title>Automação de WhatsApp | Chatbot 24h | Luiz do AutoZapp</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
+  
+  <style>
+    /* ============================================
+       RESET & VARIÁVEIS
+    ============================================ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-deep: #050508;
+      --bg-card: #0c0c14;
+      --bg-glass: rgba(255, 255, 255, 0.04);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --border-bright: rgba(255, 255, 255, 0.14);
+
+      --accent-blue: #3b7ef8;
+      --accent-violet: #7c3aed;
+      --accent-green: #25d366;
+
+      --grad-primary: linear-gradient(135deg, #3b7ef8 0%, #7c3aed 100%);
+      --grad-card: linear-gradient(145deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+      --grad-glow: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(59, 126, 248, 0.18) 0%, transparent 70%);
+
+      --text-primary: #f0f0f8;
+      --text-secondary: #9492aa;
+      --text-muted: #5c5a72;
+
+      --font-display: "Syne", sans-serif;
+      --font-body: "DM Sans", sans-serif;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-deep);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: rgba(59, 126, 248, 0.3);
+      color: #fff;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-deep);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-blue);
+      border-radius: 10px;
+    }
+
+    /* ============================================
+       CONTAINER
+    ============================================ */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ============================================
+       NAVBAR
+    ============================================ */
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      background: rgba(5, 5, 8, 0.7);
+      border-bottom: 1px solid var(--border-glass);
+      transition: all var(--transition);
+    }
+
+    #navbar.scrolled {
+      background: rgba(5, 5, 8, 0.95);
+      border-bottom-color: var(--border-bright);
+    }
+
+    .navbar-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      height: 70px;
+    }
+
+    .navbar-logo {
+      font-family: var(--font-display);
+      font-size: clamp(18px, 4vw, 24px);
+      font-weight: 800;
+      background: var(--grad-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .navbar-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .navbar-links a {
+      font-size: 14px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color var(--transition);
+      position: relative;
+    }
+
+    .navbar-links a::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-blue);
+      transition: width var(--transition);
+    }
+
+    .navbar-links a:hover {
+      color: var(--accent-blue);
+    }
+
+    .navbar-links a:hover::after {
+      width: 100%;
+    }
+
+    /* ============================================
+       HAMBURGER MENU
+    ============================================ */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 2.5px;
+      background: var(--text-primary);
+      border-radius: 2px;
+      transition: all var(--transition);
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(10px, 10px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* ============================================
+       MOBILE MENU
+    ============================================ */
+    #mobileMenu {
+      display: none;
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: var(--bg-deep);
+      border-bottom: 1px solid var(--border-glass);
+      max-height: calc(100vh - 70px);
+      overflow-y: auto;
+      z-index: 999;
+    }
+
+    #mobileMenu.open {
+      display: block;
+    }
+
+    .mobile-nav-item {
+      display: block;
+      padding: 16px 20px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 16px;
+      border-bottom: 1px solid var(--border-glass);
+      transition: color var(--transition);
+    }
+
+    .mobile-nav-item:hover {
+      color: var(--accent-blue);
+      background: rgba(59, 126, 248, 0.05);
+    }
+
+    /* ============================================
+       BUTTONS
+    ============================================ */
+    .btn {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 32px;
+      border-radius: var(--radius-md);
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--grad-primary);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(59, 126, 248, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(59, 126, 248, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--accent-blue);
+      border: 1px solid var(--border-bright);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--accent-blue);
+    }
+
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #25d366 0%, #20ba5f 100%);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(37, 211, 102, 0.4);
+    }
+
+    /* ============================================
+       HERO SECTION
+    ============================================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 70px;
+      padding-bottom: 40px;
+      overflow: hidden;
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      width: 600px;
+      height: 400px;
+      background: var(--grad-glow);
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: -1;
+      transform: translateX(-50%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+
+    .hero-content h1 {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 8vw, 64px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      word-break: break-word;
+    }
+
+    .hero-content h1 span {
+      background: var(--grad-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-content p {
+      font-size: clamp(16px, 3vw, 18px);
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .hero-buttons .btn {
+      flex: 1;
+      min-width: 180px;
+      max-width: 280px;
+    }
+
+    /* ============================================
+       SECTION CONTENT
+    ============================================ */
+    .content-section {
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-blue);
+      background: rgba(59, 126, 248, 0.1);
+      border: 1px solid rgba(59, 126, 248, 0.2);
+      padding: 8px 16px;
+      border-radius: 99px;
+      margin-bottom: 20px;
+    }
+
+    .section-label::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background: var(--accent-blue);
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+      }
+    }
+
+    .content-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 6vw, 48px);
+      font-weight: 800;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .content-section h3 {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 4vw, 28px);
+      font-weight: 700;
+      margin: 40px 0 20px;
+      line-height: 1.2;
+    }
+
+    .content-section p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    /* ============================================
+       CARDS GRID
+    ============================================ */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin: 40px 0;
+    }
+
+    .card {
+      background: var(--grad-card);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      transition: all var(--transition);
+    }
+
+    .card:hover {
+      border-color: var(--border-bright);
+      transform: translateY(-4px);
+    }
+
+    .card h4 {
+      font-family: var(--font-display);
+      font-size: clamp(18px, 3vw, 20px);
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .card p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       BENEFITS LIST
+    ============================================ */
+    .benefits-list {
+      list-style: none;
+      margin: 30px 0;
+    }
+
+    .benefits-list li {
+      padding: 14px 0 14px 40px;
+      position: relative;
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .benefits-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--accent-blue);
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    /* ============================================
+       INTERNAL LINKS SECTION
+    ============================================ */
+    .internal-links {
+      background: radial-gradient(circle 800px at 50% 50%, rgba(59, 126, 248, 0.08), transparent);
+      padding: 60px 0;
+      margin: 60px 0;
+      border-radius: var(--radius-lg);
+    }
+
+    .internal-links h3 {
+      margin-top: 0;
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: clamp(24px, 5vw, 32px);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .internal-links-subtitle {
+      text-align: center;
+      color: var(--text-secondary);
+      margin-bottom: 30px;
+      font-size: 15px;
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .link-item {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      text-decoration: none;
+      color: var(--accent-blue);
+      transition: all var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 1.4;
+      min-height: 60px;
+    }
+
+    .link-item:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--accent-blue);
+      transform: translateY(-2px);
+    }
+
+    /* ============================================
+       CTA SECTION
+    ============================================ */
+    .cta {
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle 600px at 50% 50%, rgba(59, 126, 248, 0.1), transparent);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta-content h2 {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 6vw, 48px);
+      font-weight: 800;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .cta-content p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-buttons .btn {
+      flex: 1;
+      min-width: 160px;
+      max-width: 240px;
+    }
+
+    /* ============================================
+       FLOATING WHATSAPP
+    ============================================ */
+    #whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 500;
+    }
+
+    .wpp-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, #25d366 0%, #20ba5f 100%);
+      border-radius: 50%;
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+      transition: all var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+
+    .wpp-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 32px rgba(37, 211, 102, 0.4);
+    }
+
+    .wpp-tooltip {
+      position: absolute;
+      right: 70px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      padding: 10px 16px;
+      border-radius: var(--radius-md);
+      font-size: 12px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition);
+    }
+
+    #whatsapp-float:hover .wpp-tooltip {
+      opacity: 1;
+    }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    footer {
+      background: var(--bg-card);
+      border-top: 1px solid var(--border-glass);
+      padding: 60px 0 0;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .footer-col h5 {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-primary);
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-blue);
+    }
+
+    .footer-bottom {
+      padding: 24px 0;
+      border-top: 1px solid var(--border-glass);
+      text-align: center;
+    }
+
+    .footer-bottom-text {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .footer-bottom-text a {
+      color: var(--accent-blue);
+      text-decoration: none;
+    }
+
+    /* ============================================
+       REVEAL ANIMATION
+    ============================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all var(--transition-slow);
+    }
+
+    /* ============================================
+       RESPONSIVE DESIGN
+    ============================================ */
+    @media (max-width: 768px) {
+      .navbar-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 100px;
+        padding-bottom: 60px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+        max-width: none;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .content-section {
+        padding: 60px 0;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+      }
+
+      .cta-buttons .btn {
+        width: 100%;
+        max-width: none;
+      }
+
+      .links-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      }
+
+      #whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+      }
+
+      .wpp-btn {
+        width: 50px;
+        height: 50px;
+      }
+
+      .footer-content {
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar-content {
+        padding: 12px 16px;
+        height: 60px;
+      }
+
+      #mobileMenu {
+        top: 60px;
+      }
+
+      .hero {
+        padding-top: 80px;
+      }
+
+      .hero-content h1 {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+
+      .hero-content p {
+        font-size: 14px;
+        margin-bottom: 24px;
+      }
+
+      .content-section {
+        padding: 40px 0;
+      }
+
+      .content-section h2 {
+        font-size: 28px;
+      }
+
+      .content-section h3 {
+        font-size: 20px;
+        margin: 30px 0 16px;
+      }
+
+      .card {
+        padding: 24px;
+      }
+
+      .cta-content h2 {
+        font-size: 28px;
+      }
+
+      .wpp-tooltip {
+        right: 60px;
+        font-size: 11px;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .internal-links {
+        padding: 40px 0;
+        margin: 40px 0;
+      }
+
+      .links-grid {
+        gap: 12px;
+      }
+
+      .link-item {
+        padding: 14px 12px;
+        font-size: 13px;
+        min-height: 55px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="navbar-content">
+      <a href="/" class="navbar-logo">Luiz do AutoZapp</a>
+      <ul class="navbar-links">
+        <li><a href="#problema">Problema</a></li>
+        <li><a href="#solucao">Solução</a></li>
+        <li><a href="#beneficios">Benefícios</a></li>
+      </ul>
+      <button id="hamburger" class="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu">
+    <a href="#problema" class="mobile-nav-item">Problema</a>
+    <a href="#solucao" class="mobile-nav-item">Solução</a>
+    <a href="#beneficios" class="mobile-nav-item">Benefícios</a>
+    <a href="https://wa.me/5513997595234?text=Quero%20automação%20de%20WhatsApp!" class="mobile-nav-item" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="container">
+      <div class="hero-content reveal">
+        <h1>Automação de WhatsApp que <span>Vende 24h</span></h1>
+        <p>Chatbot inteligente respondendo clientes automaticamente. Qualifica leads, oferece promoções, marca agendamentos. Seu WhatsApp trabalhando enquanto você dorme.</p>
+        <div class="hero-buttons">
+          <a href="https://wa.me/5513997595234?text=Quero%20automação%20de%20WhatsApp!" class="btn btn-whatsapp" target="_blank" rel="noopener">Implementar Agora</a>
+          <a href="#solucao" class="btn btn-secondary">Ver Como Funciona</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMA -->
+  <section class="content-section" id="problema">
+    <div class="container reveal">
+      <span class="section-label">O Desafio</span>
+      <h2>Por Que Você Perde Vendas no WhatsApp</h2>
+
+      <p style="margin-bottom: 30px; font-size: 16px;"><strong>A realidade dos negócios em 2026:</strong></p>
+
+      <ul class="benefits-list">
+        <li><strong>Clientes esperam resposta em minutos</strong> — se você não responder rápido, vão procurar concorrência</li>
+        <li><strong>Você não consegue responder tudo</strong> — ligações, reuniões, almoço. Cliente quer falar AGORA</li>
+        <li><strong>Perguntas repetidas todo dia</strong> — "qual é o preço?", "vocês trabalham amanhã?", "como funciona?"</li>
+        <li><strong>Leads qualificados viram perdidos</strong> — ninguém identifica quem realmente quer comprar</li>
+        <li><strong>Você não vende 24h</strong> — seu concorrente que tem automação, sim. Enquanto dorme, ele continua vendendo</li>
+        <li><strong>Sem dados dos clientes</strong> — não sabe quem perguntou o quê, quando, qual interesse de verdade</li>
+      </ul>
+
+      <p style="margin-top: 40px; font-size: 17px; color: var(--accent-blue); font-weight: 600;">💡 A solução é óbvia: Um bot que responde 24h, qualifica leads e passa os quentes para você.</p>
+    </div>
+  </section>
+
+  <!-- SOLUÇÃO -->
+  <section class="content-section" id="solucao">
+    <div class="container reveal">
+      <span class="section-label">Nosso Sistema</span>
+      <h2>Como Funciona a Automação</h2>
+
+      <h3>1️⃣ Cliente Entra em Contato</h3>
+      <p>Pergunta sobre produto, preço, horário, disponibilidade — qualquer coisa. Faz uma pergunta simples no WhatsApp.</p>
+
+      <h3>2️⃣ Bot Responde em 1 Segundo</h3>
+      <p>Sem delay, sem "digitando...". Sistema responde com informações exatas. Preço, descrição, fotos, horários. Tudo que você configurou.</p>
+
+      <h3>3️⃣ Bot Qualifica o Lead</h3>
+      <p>Faz perguntas inteligentes: "Qual serviço te interessa?", "Qual seu budget?", "Quando você precisa?". Identifica interesse real.</p>
+
+      <h3>4️⃣ Bot Oferece Próximo Passo</h3>
+      <p>Marca agendamento direto, oferece desconto, envia catálogo. Tudo automático, sem sua intervenção.</p>
+
+      <h3>5️⃣ Você Recebe Notificação</h3>
+      <p>Apenas dos leads qualificados. Aqueles que realmente têm interesse e podem comprar. Você só fala com quem importa.</p>
+
+      <p style="margin-top: 40px; font-size: 17px; color: var(--accent-blue); font-weight: 600;">Resultado: Máquina de vendas funcionando 24h/dia, 7 dias por semana. Sem você fazer nada.</p>
+    </div>
+  </section>
+
+  <!-- FUNCIONALIDADES -->
+  <section class="content-section" id="beneficios">
+    <div class="container reveal">
+      <span class="section-label">Recursos</span>
+      <h2>O Que Você Ganha com Automação</h2>
+
+      <div class="cards-grid">
+        <div class="card">
+          <h4>🤖 Respostas Automáticas</h4>
+          <p>Configura respostas para perguntas comuns. Bot dispara na hora. Sem atraso, sem erros.</p>
+        </div>
+
+        <div class="card">
+          <h4>💬 Fluxos de Conversação</h4>
+          <p>Árvores de diálogo inteligentes. Cliente escolhe opção → vai para próxima pergunta. Qualificação automática.</p>
+        </div>
+
+        <div class="card">
+          <h4>📊 Qualificação de Leads</h4>
+          <p>Sistema marca como "quente", "morno", "frio". Você sabe exatamente quem quer comprar.</p>
+        </div>
+
+        <div class="card">
+          <h4>📅 Integração com Agendamento</h4>
+          <p>Cliente marca direto no bot. Sistema valida horário. Confirmação automática. Zero erros.</p>
+        </div>
+
+        <div class="card">
+          <h4>📸 Envio de Fotos e Catálogo</h4>
+          <p>Bot envia imagens, vídeos, catálogos em PDF. Cliente vê qualidade antes de comprar.</p>
+        </div>
+
+        <div class="card">
+          <h4>📧 Captura de Dados</h4>
+          <p>Bot coleta nome, telefone, email, interesse. Tudo salvo automaticamente no seu CRM.</p>
+        </div>
+
+        <div class="card">
+          <h4>🔗 Integração CRM</h4>
+          <p>Envia leads direto para seu sistema. Seus vendedores veem tudo organizado. Sem perder informação.</p>
+        </div>
+
+        <div class="card">
+          <h4>📱 WhatsApp Business API</h4>
+          <p>Usa API oficial do WhatsApp. Seu número fica seguro, sem risco de bloqueio.</p>
+        </div>
+
+        <div class="card">
+          <h4>📊 Relatórios Detalhados</h4>
+          <p>Dashboard com estatísticas. Taxa de resposta, conversão, clientes mais ativos. Dados que importam.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NÚMEROS -->
+  <section class="content-section">
+    <div class="container reveal">
+      <span class="section-label">Resultado Real</span>
+      <h2>Impacto que Seus Clientes Veem</h2>
+
+      <div class="cards-grid">
+        <div class="card">
+          <h4>⚡ -90% Tempo de Resposta</h4>
+          <p>De 2 horas para 1 segundo. Cliente recebe resposta na hora. Seu WhatsApp sempre "online".</p>
+        </div>
+
+        <div class="card">
+          <h4>🎯 +60% Taxa de Conversão</h4>
+          <p>Qualificação automática + resposta rápida = mais vendas. Você vende mais falando com quem realmente quer.</p>
+        </div>
+
+        <div class="card">
+          <h4>⏱️ 20h Economizadas/Semana</h4>
+          <p>Sem responder pergunta repetida. Sem digitar "oi" mil vezes. Sistema faz tudo. Você descansa.</p>
+        </div>
+
+        <div class="card">
+          <h4>🌙 Vendas 24/7</h4>
+          <p>Enquanto você dorme, bot trabalha. Qualifica clientes. Oferece promoção. Marca agendamento. Você acorda com leads quentes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERLINKAGEM -->
+  <section class="internal-links">
+    <div class="container reveal">
+      <h3>Combine Com Outros Serviços</h3>
+      <p class="internal-links-subtitle">Automação + Site + Agendamento = Máquina de vendas completa</p>
+
+      <div class="links-grid">
+        <a href="/" class="link-item">🏠 Voltar para Home</a>
+        <a href="#" class="link-item">🌐 Site Profissional</a>
+        <a href="#" class="link-item">📅 Sistema Agendamento</a>
+        <a href="#" class="link-item">📊 Integração CRM</a>
+        <a href="#" class="link-item">💳 Integração Pagamentos</a>
+        <a href="#" class="link-item">🎯 Para Clínicas</a>
+        <a href="#" class="link-item">💇 Para Salões</a>
+        <a href="#" class="link-item">🏋️ Para Academias</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-content reveal">
+        <h2>Pronto para Vender 24h?</h2>
+        <p>Consultoria gratuita onde analisamos seu funil de vendas, mostramos onde você perde clientes e como automação resolve tudo.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/5513997595234?text=Quero%20consultoria%20para%20automação%20de%20WhatsApp!" class="btn btn-whatsapp" target="_blank" rel="noopener">Agendar Consultoria</a>
+          <a href="/" class="btn btn-secondary">Solicitar Orçamento</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-col">
+          <h5>Luiz do AutoZapp</h5>
+          <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;">Automação de WhatsApp que vende 24h. Mais de 200 empresas confiam.</p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Serviços</h5>
+          <ul class="footer-links">
+            <li><a href="#">Automação WhatsApp</a></li>
+            <li><a href="#">Criação de Sites</a></li>
+            <li><a href="#">Sistema Agendamento</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Recursos</h5>
+          <ul class="footer-links">
+            <li><a href="#">Blog e Artigos</a></li>
+            <li><a href="#">Cases de Sucesso</a></li>
+            <li><a href="#">Documentação</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Contato</h5>
+          <a href="https://wa.me/5513997595234" style="display: flex; gap: 10px; font-size: 14px; color: var(--text-secondary); text-decoration: none; margin-bottom: 12px;" target="_blank" rel="noopener">
+            <span>📞</span> +55 13 99759-5234
+          </a>
+          <a href="https://luizdoautozapp.com.br" style="display: flex; gap: 10px; font-size: 14px; color: var(--text-secondary); text-decoration: none;" target="_blank" rel="noopener">
+            <span>🌐</span> luizdoautozapp.com.br
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-bottom-text">© 2026 Luiz do AutoZapp. Todos os direitos reservados.</p>
+        <p class="footer-bottom-text">Automação de WhatsApp • Criação de Sites • Sistema de Agendamento</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <div id="whatsapp-float">
+    <a href="https://wa.me/5513997595234?text=Quero%20automação%20de%20WhatsApp!" class="wpp-btn" aria-label="Falar com Luiz do AutoZapp no WhatsApp" target="_blank" rel="noopener">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+      </svg>
+    </a>
+    <div class="wpp-tooltip">Consultoria gratuita</div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.mobile-nav-item').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    // Smooth scroll and close menu
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          hamburger.classList.remove('active');
+          mobileMenu.classList.remove('open');
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Reveal animation on scroll
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
